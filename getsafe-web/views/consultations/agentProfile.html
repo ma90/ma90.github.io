@@ -1,0 +1,24 @@
+<div ng-class="{&#39;chat-message-last&#39;: last_message}">
+  <div class="chat-message chat-message-body agent-profile">
+    <p>
+      Hallo {{ ::user_name}},
+    </p>
+    <p>
+      du wirst jetzt beraten von:
+    </p>
+    <div class="flex padding-small-top">
+      <img class="agent-profile-avatar" ng-src="{{agent_avatar_url}}" />
+      <div class="agent-profile-info">
+        <h5 class="margin-none text-bold">
+          {{ ::agent_name }}
+        </h5>
+        <p>
+          {{ ::agent_role }}
+        </p>
+        <p ng-if="agent_education">
+          Ausbildung: {{ ::agent_education }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

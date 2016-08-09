@@ -1,0 +1,40 @@
+<ion-view cache-view="false" title="{{offer_secondary?&#39;Deine Angebote&#39;:&#39;Dein Angebot&#39;}}"><ion-nav-bar align-title="left" class="bar-calm"><ion-nav-back-button default-nav-back-button="" ng-click="goBack()"><i class="icon icomoon icomoon-chevron-left"></i></ion-nav-back-button><ion-nav-buttons side="right"><button class="button" ng-click="goToChat()"><i class="icon icomoon icomoon-bubble"></i></button></ion-nav-buttons></ion-nav-bar><ion-content class="content-scroll-overflow" scroll="false"><ng-include src="&#39;views/offers/compare-primary.html&#39;"></ng-include></ion-content><ion-tabs class="tabs-positive tabs-icon-left tabs-top tabs-striped" ng-if="offer_secondary"><ion-tab title="{{ offer_primary.insurer.title }}"><ion-view title="Deine Angebote"><ion-content class="content-scroll-overflow" scroll="false"><ng-include src="&#39;views/offers/compare-primary.html&#39;"></ng-include></ion-content></ion-view></ion-tab><ion-tab title="{{ includes_current ? &#39;AKTUELLER TARIF&#39; : offer_secondary.insurer.title }}"><ion-view title="Deine Angebote"><ion-content class="content-scroll-overflow" scroll="false"><ng-include ng-controller="InsurancesShowCtrl" ng-if="includes_current" src="&#39;views/insurances/show-body.html&#39;"></ng-include>
+          <div ng-if="!includes_current">
+            <div class="list">
+              <div class="item item-thumbnail-left flex flex-content-center item-product-card item-offer-card margin-none">
+                <div class="offer-rating">
+                  <img class="item-product-card-img" ng-src="{{ offer_secondary.insurer.public_logo_url }}" />
+                </div>
+                <div class="offer-text">
+                  <h2>
+                    {{ product_title }}
+                  </h2>
+                  <ul class="stars">
+                    <li class="star" ng-class="{&#39;star-inactive&#39;: offer_secondary.tariff_rating&lt;=n}" ng-repeat="n in range(MAX_STAR_NR) track by $index"></li>
+                  </ul>
+                  <p ng-click="log(this)">
+                    <small>{{ offer_secondary.premium_interval }} nur</small>
+                  </p>
+                  <div class="products-price">
+                    {{ offer_secondary.premium | price }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="padding-large-bottom padding-none-top text-center">
+              <div class="insurance-cta">
+                <p class="padding-bottom calm">
+                  {{ offer_secondary.usp_text }}
+                </p>
+                <p class="padding-bottom calm"></p>
+                <button class="button button-block button-calm max-width-full button-cta" ng-click="selectOffer(offer_secondary)" ng-if="!offer_secondary.considered"><img class="button-cta-icon" src="img/icon-brand.png" />Jetzt abschließen</button><button class="button button-block button-calm max-width-full button-cta" ng-click="goToChat()" ng-if="offer_secondary.considered"><img class="button-cta-icon" src="img/icon-brand.png" />Zum chat</button>
+              </div>
+            </div>
+            <div class="list list-inset list-uppercase padding-large-bottom">
+              <h4 class="grey">
+                Optionen
+              </h4>
+              <a class="item item-icon-left item-icon-right item-option" ng-click="goToDocuments()"><i class="icon icon-small icomoon icomoon-file-empty"></i>Detailvergleich als PDF<i class="icon icon-small icomoon icomoon-chevron-right stable"></i></a>
+            </div>
+          </div>
+        </ion-content></ion-view></ion-tab></ion-tabs></ion-view>

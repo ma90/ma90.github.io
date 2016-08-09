@@ -1,0 +1,18 @@
+<ion-view cache-view="false" title="Weitere Verträge verwalten"><ion-content class="light-bg padding">
+    <div class="padding-top text-center">
+      <h4 class="grey border-stable-bottom padding-bottom margin-none">
+        Bei der {{insurer_title}} wurden bereits folgende Verträge für dich angelegt:
+      </h4>
+    </div>
+    <ul class="list">
+      <li class="item text-success" ng-repeat="insurance in insurances track by insurance.id">
+        {{insurance.product.title}}
+      </li>
+    </ul>
+    <div class="padding-bottom text-center">
+      <h4 class="grey padding-vertical">
+        Vermisst Du noch Verträge von der {{insurer_title}}?
+      </h4>
+      <button class="button button-block button-calm button-cta" ng-click="goToMissingContracts()">Ja, es fehlen Verträge</button><button class="button button-block button-calm button-cta" ng-click="goToProductsIndex()">Nein, alles vollständig</button>
+    </div>
+  </ion-content></ion-view>

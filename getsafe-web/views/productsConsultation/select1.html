@@ -1,0 +1,19 @@
+<ion-view cache-view="false" class="padding-large-bottom" title="Neues angebot einholen"><ion-content class="light-bg" ng-class="{&#39;stretch-to-bottom&#39;: !can_show}">
+    <div class="text-center padding-horizontal padding-top">
+      <h5 class="select-section-title">
+        Beliebte Versicherungen
+      </h5>
+    </div>
+    <ul class="list list-transparent margin-none select-list" ng-repeat="product in products track by product.id">
+      <i class="icomoon icomoon-question select-icon" ng-class="product.show_description ? &#39;icomoon-chevron-down&#39; : &#39;icomoon-question&#39;" ng-click="toogleDescription(product)"></i>
+      <li class="item item-checkbox no-box-shadow" ng-class="{&#39;checked&#39;: product.checked}">
+        <label class="checkbox"><input ng-click="selectProduct($index, product.id)" ng-model="product.checked" type="checkbox" /></label>
+        <p>
+          {{product.title}}
+        </p>
+      </li>
+      <div class="select-description" ng-show="product.show_description">
+        {{product.text || '...'}}
+      </div>
+    </ul>
+  </ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="can_show ? &#39;bar-calm&#39; : &#39;display-none&#39;"><a class="title button-cta" id="buy-products-confirm" ng-click="submit()">Weiter</a></ion-footer-bar>

@@ -1,0 +1,13 @@
+<ion-view cache-view="false" title="{{title}}"><ion-content class="light-bg" overflow-scroll="false">
+    <div class="padding-top padding-horizontal flex flex-content-center height-inherit">
+      <p class="text-center">
+        Kein Problem - nenne uns einfach dein Bruttogehalt und wir berechnen daraus deinen Beitrag zur gesetzlichen Krankenversicherung.
+      </p>
+      <div class="input-wrapper input-calm input-calm-font padding-bottom padding-horizontal">
+        <input class="input-full-length" ng-keyup="changeIncome($event)" type="number" /><span class="input-unit">€</span>
+      </div>
+      <div class="option-picker-container padding">
+        <label class="option-picker" ng-class="{&#39;checked&#39;: isChoosenInterval(&#39;month&#39;)}" ng-click="setChoosenInterval(&#39;month&#39;)"><input type="checkbox">Monatlich</input></label><label class="option-picker" ng-class="{&#39;checked&#39;: isChoosenInterval(&#39;year&#39;)}" ng-click="setChoosenInterval(&#39;year&#39;)"><input type="checkbox">Jährlich</input></label>
+      </div>
+    </div>
+  </ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="formValid() ? &#39;bar-calm&#39; : &#39;bar-stable&#39;" ng-click="submit()"><a class="title button-cta">Weiter</a></ion-footer-bar>

@@ -1,0 +1,26 @@
+<ion-modal-view><ion-header-bar align-title="left" class="bar-calm">
+    <div class="buttons">
+      <button class="button icon icomoon icomoon-cross" ng-click="closeAddModal()"></button>
+    </div>
+    <h1 class="title bar-modal-line-height">
+      Neues Angebot einholen
+    </h1>
+  </ion-header-bar><ion-content class="light-bg stretch-to-bottom">
+    <div class="text-center padding-horizontal padding-top">
+      <h5 class="select-section-title" ng-click="xx()">
+        Beliebte Versicherungen
+      </h5>
+    </div>
+    <ul class="list list-transparent margin-none select-list" ng-repeat="product in products track by product.id">
+      <i class="icomoon icomoon-question select-icon" ng-class="product.show_description ? &#39;icomoon-chevron-down&#39; : &#39;icomoon-question&#39;" ng-click="toogleDescription(product)"></i>
+      <li class="item item-checkbox no-box-shadow" ng-class="{&#39;checked&#39;: product.checked}">
+        <label class="checkbox"><input ng-click="selectProduct($index, product)" ng-model="product.checked" type="checkbox" /></label>
+        <p>
+          {{product.title}}
+        </p>
+      </li>
+      <div class="select-description" ng-show="product.show_description">
+        {{product.text || '...'}}
+      </div>
+    </ul>
+  </ion-content></ion-modal-view>

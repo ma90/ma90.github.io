@@ -1,0 +1,46 @@
+<ion-view title="Meine Anfragen"><ion-nav-buttons><button class="button button-icon" id="menu-toggleMenuBtn" ng-click="toggleMenu()"><i class="icon icomoon icomoon-menu"></i>
+      <div class="chat-badge badge badge-light" ng-if="has_new_chat_messages">
+        {{unread_messages_count}}
+      </div>
+    </button></ion-nav-buttons><ion-content><ion-refresher on-refresh="fetchConsultations({ refresh_data: true })" pulling-text="Aktualisiere..."></ion-refresher>
+    <div class="postbox-empty" ng-show="index_empty">
+      <div class="postbox-empty-content">
+        <i class="icon ion-ios-people icon-huge calm"></i>
+        <h3 class="postbox-empty-title">
+          Noch keine Anfragen?
+        </h3>
+        <p class="padding-top">
+          Starte eine Anfrage und du siehst sie hier.
+        </p>
+        <p class="padding-top padding-large-bottom">
+          Unsere Versicherungsexperten stehen dir bei allen Fragen rund um deinen Versicherungschutz zur Verfügung.
+        </p>
+        <a class="item-transparent dark" ng-click="generalConsultation()"><i class="icomoon icomoon-bubble"></i>Chat Starten
+          <div class="online-badge"></div>
+        </a>
+      </div>
+    </div>
+    <ion-list class="postbox-list list-transparent"><ion-item ng-class="{&#39;consultation-inactive&#39; : !consultation.active}" ng-click="goToConsultationChat(consultation)" ng-repeat="consultation in consultations track by consultation.id">
+        <div class="postbox-avatar">
+          <img ng-src="{{consultation.admin_image_url}}" />
+        </div>
+        <div class="item-inner-wrapper">
+          <div class="postbox-consultation-info">
+            <h3 class="text-bold">
+              {{ consultation.title }}
+            </h3>
+            <p class="postbox-message-preview">
+              {{ consultation.last_message_text }}
+            </p>
+          </div>
+          <div class="postbox-consultation-timestamp">
+            <span class="postbox-consultation-time" ng-class="{&#39;calm&#39; : consultation.user_has_unread_messages}">{{ consultation.display_last_message_at || "&nbsp" }}</span>
+            <div class="chat-badge badge" ng-if="consultation.user_has_unread_messages">
+              {{consultation.user_unread_messages_count}}
+            </div>
+          </div>
+          <div class="postbox-icon-chevron" ng-class="{&#39;calm&#39; : consultation.user_has_unread_messages}">
+            <i class="icomoon icomoon-chevron-right"></i>
+          </div>
+        </div>
+      </ion-item></ion-list></ion-content></ion-view><add-plus-button tracking="plusButtonTrackers"></add-plus-button>

@@ -1,0 +1,77 @@
+<ion-view cache-view="false" class="list-tarif-modal" title="Tarife Checken"><ion-content class="light-bg padding has-header text-center" delegate-handle="tariff_scroll">
+    <h4 class="padding-top">
+      Der GetSafe Tarif-Check
+    </h4>
+    <p class="padding-bottom">
+      {{modal_content}}
+    </p>
+    <hr class="margin-none" />
+    <ul class="list list-multicheck">
+      <li class="item item-checkbox">
+        <label class="checkbox checkbox-squared"><input ng-disabled="true" ng-model="showInsurance.checked" type="checkbox" /></label>
+        <div class="item-thumbnail-left item-product item-light item-checkbox-description">
+          <img ng-src="{{showInsurance.insurer.public_logo_url}}" />
+          <div class="text-left">
+            <p>
+              {{showInsurance.product.title}}
+            </p>
+            <small>{{showInsurance.insurer.title}} - {{showInsurance.interval}}</small>
+            <div class="products-price">
+              {{showInsurance.monthly|price}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="item item-checkbox" ng-if="!!proposed">
+        <label class="checkbox checkbox-squared"><input ng-click="trackProposed(proposed.checked, proposed.title)" ng-model="proposed.checked" type="checkbox" /></label>
+        <div class="item-thumbnail-left item-product item-light item-checkbox-description">
+          <img class="proposed-icon" ng-src="{{proposed.icon}}" />
+          <div class="text-left">
+            <p>
+              GetSafe empfiehlt: <br>{{proposed.title}}
+            </p>
+            <p>
+              <small>{{proposed.text}}</small>
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="item item-checkbox" ng-if="showInsurance.id != insurance.id" ng-repeat="insurance in insurances track by insurance.id">
+        <label class="checkbox checkbox-squared"><input ng-click="track(insurance.checked)" ng-model="insurance.checked" type="checkbox" /></label>
+        <div class="item-thumbnail-left item-product item-light item-checkbox-description">
+          <img ng-src="{{insurance.insurer.public_logo_url}}" />
+          <div class="text-left">
+            <p>
+              {{insurance.product.title}}
+            </p>
+            <small>{{insurance.insurer.title}} - {{insurance.interval}}</small>
+            <div class="products-price">
+              {{insurance.monthly|price}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="item item-checkbox" ng-repeat="product in additional_products track by product.id">
+        <label class="checkbox checkbox-squared"><input ng-click="track(product.checked)" ng-model="product.checked" type="checkbox" /></label>
+        <div class="item-thumbnail-left item-product item-light item-checkbox-description">
+          <img class="proposed-icon" ng-src="img/icon-pdf.svg" />
+          <div class="text-left">
+            <p>
+              {{product.title}}
+            </p>
+            <small>Neue Anfrage</small>
+          </div>
+        </div>
+      </li>
+      <li class="item item-checkbox" ng-if="">
+        <div class="item-thumbnail-left item-product item-light item-checkbox-description" ng-click="showAddModal()">
+          <a class="item-add"><i class="icomoon icomoon-plus icon icon-large"></i></a>
+          <div class="text-left">
+            <p>
+              Zusätzliches Angebot<br> unverbindlich einholen
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </ion-content><ion-footer-bar align-title="center" class="bar-calm" ng-click="submit()"><a class="title button-cta">Check Starten</a></ion-footer-bar></ion-view>

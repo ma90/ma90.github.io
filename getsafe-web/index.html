@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <script type="text/javascript">
+
+      function isFacebookApp() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+}
+
+
+      if(isFacebookApp()) {
+
+      setTimeout(function() {
+
+        console.log("resizing now");
+
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        console.log(h);
+        document.getElementsByTagName("ion-nav-view")[0].style.height = (h-108)+"px";
+        console.log(document.getElementsByTagName("ion-nav-view")[0].style.height);
+      }, 2000);
+
+      }
+
+    </script>
+
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1.0, target-densityDpi=device-dpi"" name="viewport" />
+    <meta content="default-src *; img-src * data:; font-src &#39;self&#39; data:; style-src &#39;self&#39; &#39;unsafe-inline&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; http://localhost:35729" http-equiv="Content-Security-Policy" />
+    <meta content="telephone=no" name="format-detection" />
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body ng-app="Safe">
+    <ion-nav-bar align-title="left" class="bar-calm"><ion-nav-back-button default-nav-back-button="" ng-click="goBack()"><i class="icon icomoon icomoon-chevron-left"></i></ion-nav-back-button></ion-nav-bar><ion-nav-view style="top: 0; left: 0; bottom: 0; right: 0; overflow: hidden;"></ion-nav-view>
+    <script src="cordova.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/libs.js"></script>
+    <script src="js/application.js"></script>
+
+
+  </body>
+
+</html>

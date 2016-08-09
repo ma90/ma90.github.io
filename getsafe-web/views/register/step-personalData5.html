@@ -1,0 +1,135 @@
+<ion-view cache-view="false" class="light-bg" hide-nav-bar="true"><ion-header-bar class="bar-calm"><back-to-state-button class="flex" target-state="register-stepInsurers"></back-to-state-button>
+    <ul class="indicator" data-indicator-step="2">
+      <li class="indicator-item-complete">
+        Versicherungen
+      </li>
+      <li class="indicator-item-complete">
+        Person
+      </li>
+      <li>
+        Bestätigung
+      </li>
+    </ul>
+  </ion-header-bar><ion-content overflow-scroll="false">
+    <form name="profileForm" ng-class="{&#39;validation&#39;: profileForm.$submitted}" ng-submit="submit(profileForm)" novalidate="">
+      <div class="validation-errors" ng-if="profileForm.$submitted &amp;&amp; profileForm.$invalid">
+        <div class="validation-message" ng-if="profileForm[&#39;user.fullname&#39;].$error.pattern">
+          Bitte gebe Vor- und Nachname ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.fullname&#39;].$error.required">
+          Bitte gebe deinen Namen ein (Max Mustermann).
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.fullname&#39;].$error.minlength">
+          Bitte gebe deinen korrekten Namen ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.gender&#39;].$invalid">
+          Bitte wähle dein Geschlecht aus.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.birthdate&#39;].$error.date">
+          Bitte trage dein Geburtsdatum ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.birthdate&#39;].$error.birthdate">
+          Du musst leider mindestens 18 Jahre alt sein, um GetSafe nutzen zu können.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.street&#39;].$invalid">
+          Bitte gebe deine Straße ein (Musterstraße 5).
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.zip&#39;].$error.required">
+          Bitte gebe deine Postleitzahl ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.zip&#39;].$error.pattern">
+          Bitte gebe eine korrekte Postleitzahl ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.place&#39;].$invalid">
+          Bitte gebe deinen Wohnort ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.email&#39;].$error.required">
+          Bitte gebe deine E-Mail ein.
+        </div>
+        <div class="validation-message" ng-if="profileForm[&#39;user.email&#39;].$error.email">
+          Bitte gebe eine korrekte E-Mail ein.
+        </div>
+      </div>
+      <div class="list list-transparent">
+        <div class="flex flex-items-center flex-space-between padding-left">
+          <h4 class="text-light grey">
+            Persönliche Angaben
+          </h4>
+          <a class="button button-clear padding-small-top" ng-click="toogleTooltip()"><i class="icomoon icomoon-question icon icon-has-border" ng-class="isTooltipOpen ? &#39;icomoon-cross&#39; : &#39;icomoon-question&#39;"></i></a>
+        </div>
+        <div class="tooltip tooltip-light" ng-show="isTooltipOpen">
+          <p>
+            Wir benötigen diese Angaben, um deine Vertragsdaten bei den Gesellschaften für dich anfragen zu können.
+          </p>
+        </div>
+        <label class="item item-input block" ng-class="{valid: profileForm[&#39;user.fullname&#39;].$valid, error: profileForm[&#39;user.fullname&#39;].$invalid}" ng-hide="userName"><small class="uppercase grey">Name</small>
+          <div class="input-wrapper padding-right">
+            <input class="input" id="register-nameInput" name="user.fullname" ng-change="changeNameHandler()" ng-minlength="5" ng-model="user.fullname" ng-pattern="full_name_regexp" required="" type="text" />
+          </div>
+        </label><label class="item user-gender no-validation-icon" ng-class="{valid: profileForm[&#39;user.gender&#39;].$valid, error: profileForm[&#39;user.gender&#39;].$invalid}"><small class="uppercase grey">Geschlecht</small>
+          <div class="flex padding-top">
+            <input class="input" name="user.gender" ng-model="user.gender" required="" type="hidden" /><ion-radio class="radio-stable" ng-model="user.gender" ng-selected="true" ng-value="&#39;F&#39;">Weiblich</ion-radio><ion-radio class="radio-stable" ng-model="user.gender" ng-value="&#39;M&#39;">Männlich</ion-radio>
+          </div>
+        </label>
+        <div class="item item-input no-validation-icon" ng-class="{valid: profileForm[&#39;user.birthdate&#39;].$valid, error: profileForm[&#39;user.birthdate&#39;].$invalid || profileForm[&#39;user.birthdate&#39;].$error.date }">
+          <small class="uppercase grey">Geburtsdatum</small>
+        </div>
+        <div class="item item-select-date input-wrapper">
+          <input class="input" name="user.birthdate" ng-model="user.birthdate" type="hidden" />
+          <div class="select-date-field">
+            <select name="user.birthDayVal" ng-model="user.birthDayVal">
+              <option value="">
+                Tag
+              </option>
+              <option ng-repeat="day in days track by $index" ng-selected="day == user.birthDayVal" value="{{day}}">
+                {{day}}
+              </option>
+            </select>
+          </div>
+          <div class="select-date-field">
+            <select name="user.birthMonthVal" ng-model="user.birthMonthVal">
+              <option value="">
+                Monat
+              </option>
+              <option ng-repeat="month in months track by $index" ng-selected="month == user.birthMonthVal" value="{{month}}">
+                {{month}}
+              </option>
+            </select>
+          </div>
+          <div class="select-date-field">
+            <select name="user.birthYearVal" ng-model="user.birthYearVal">
+              <option value="">
+                Jahr
+              </option>
+              <option ng-repeat="year in years track by $index" ng-selected="year == user.birthYearVal" value="{{year}}">
+                {{year}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div ng-controller="GuessedAddressCtrl">
+          <label class="item item-input block" ng-class="{valid: profileForm[&#39;user.street&#39;].$valid, error: profileForm[&#39;user.street&#39;].$invalid}"><small class="uppercase grey">Straße und Nummer</small>
+            <div class="input-wrapper padding-right">
+              <input class="input" name="user.street" ng-blur="userFinishedFilling()" ng-model="user.street" required="" type="text" />
+            </div>
+          </label>
+          <div class="flex">
+            <label class="item item-input block" ng-class="{valid: profileForm[&#39;user.zip&#39;].$valid, error: profileForm[&#39;user.zip&#39;].$invalid}"><small class="uppercase grey">PLZ</small>
+              <div class="input-wrapper">
+                <input class="input" maxlength="5" name="user.zip" ng-blur="userFinishedFilling()" ng-model="user.zip" ng-pattern="/^[0-9]{5}$/" required="" type="tel" />
+              </div>
+            </label><label class="item item-input block" ng-class="{valid: profileForm[&#39;user.place&#39;].$valid, error: profileForm[&#39;user.place&#39;].$invalid}"><small class="uppercase grey">Stadt</small>
+              <div class="input-wrapper padding-right">
+                <input class="input" name="user.place" ng-blur="userFinishedFilling()" ng-model="user.place" required="" type="text" />
+              </div>
+            </label>
+          </div>
+        </div>
+        <label class="item item-input block" ng-class="{valid: profileForm[&#39;user.email&#39;].$valid, error: profileForm[&#39;user.email&#39;].$invalid}"><small class="uppercase grey">E-Mail</small>
+          <div class="input-wrapper padding-right">
+            <input class="input" name="user.email" ng-model="user.email" required="" type="email" validate-email="" />
+          </div>
+          <span ng-init="setForm(profileForm)"></span></label>
+      </div>
+    </form>
+  </ion-content><ion-footer-bar align-title="center" keyboard-attach="" ng-class="formValid() ? &#39;bar-calm&#39; : &#39;bar-stable&#39;"><a class="title button-cta" id="personalData-confirm" ng-click="submitProfileForm(profileForm)">WEITER</a></ion-footer-bar></ion-view>

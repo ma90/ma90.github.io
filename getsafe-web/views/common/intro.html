@@ -1,0 +1,31 @@
+<ion-view hide-nav-bar="true" title="Intro">
+  <div class="intro">
+    <div class="tr">
+      <div class="td v-align-middle">
+        <div class="row">
+          <div class="col col-80 col-offset-10 padding-large-top">
+            <img alt="GetSafe" class="img-responsive" src="img/logo.png" />
+          </div>
+        </div>
+        <h5 class="grey">
+          Eine App. Alle Versicherungen.
+        </h5>
+      </div>
+    </div>
+    <div class="tr">
+      <div class="td padding-large-top">
+        <h4 class="grey padding-bottom">
+          Was möchtest du tun?
+        </h4>
+        <a class="button button-block button-calm button-cta" nav-direction="forward" ng-click="goToRegister()">Neu Registrieren</a><a class="button button-block button-cta grey-darker" nav-direction="forward" ng-click="goToLogin()">Login</a>
+      </div>
+    </div>
+    <div class="tr">
+      <div class="td v-align-bottom">
+        <div class="footnote">
+          <a class="calm" ui-sref="intro-informations">{{ "Informations" | translate }}</a><a class="calm" ui-sref="intro-faq">{{ "FAQ" | translate }}</a><a class="calm" ui-sref="intro-contact">{{ "Kontakt" | translate }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

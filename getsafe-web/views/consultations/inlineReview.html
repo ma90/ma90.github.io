@@ -1,0 +1,28 @@
+<div class="padding-large-bottom padding-horizontal" ng-if="$last">
+  <div class="chat-inline-review" ng-if="!consultation.has_rating">
+    <div class="text-center">
+      <i class="icon ion-ios-people icon-huge calm"></i>
+    </div>
+    <h4 class="text-center grey margin-none">
+      Deine Beratung ist beendet.
+    </h4>
+    <h4 class="text-center grey margin-none">
+      Wie hat sie dir gefallen?
+    </h4>
+    <div class="text-center padding-small-top">
+      <span class="icon ion-ios-star icon-large" ng-class="{energized: isActive($index)}" ng-click="givenRating($index + 1)" ng-repeat="star in stars_array track by $index"></span>
+    </div>
+    <div class="text-center" ng-if="!rating_given">
+      Drücke die Sterne um uns zu bewerten.
+    </div>
+    <div class="text-center padding-top" ng-class="{invisible: !rating_given}" ng-show="current_rating &lt; 4">
+      Was können wir besser machen?<label class="item item-input"><textarea class="nice-textarea js-inline-review-input" ng-model="review.user_suggestion" placeholder="Teile uns hier deine Meinung mit" rows="7"></textarea></label>
+    </div>
+    <div class="text-center padding-top" ng-class="{invisible: !rating_given}">
+      <button class="button button-block button-calm button-cta" ng-click="submitRating()">Bestätigen</button>
+    </div>
+  </div>
+  <h4 class="text-center grey" ng-if="consultation.has_rating">
+    Vielen Dank für deine Bewertung.
+  </h4>
+</div>

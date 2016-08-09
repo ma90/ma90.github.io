@@ -1,0 +1,29 @@
+<ion-modal-view ng-controller="ReviewCtrl"><ion-header-bar align-title="left" class="bar-calm">
+    <div class="buttons">
+      <button class="button icon icomoon icomoon-cross" ng-click="closeReviewModal()"></button>
+    </div>
+    <h1 class="title bar-modal-line-height">
+      Empfehle GetSafe weiter
+    </h1>
+  </ion-header-bar><ion-content class="padding-large light-bg">
+    <div class="padding-very-large-bottom">
+      <div class="text-center">
+        <i class="icon ion-ios-people icon-huge calm"></i>
+      </div>
+      <h4 class="text-center grey">
+        Wie wahrscheinlich ist es, dass du GetSafe einem Freund oder Kollegen weiterempfehlen wirst?
+      </h4>
+      <div class="text-center">
+        <span class="icon ion-ios-star icon-large" ng-class="{energized: isActive($index)}" ng-click="givenRating($index + 1)" ng-repeat="star in stars_array track by $index"></span>
+      </div>
+      <div class="text-center" ng-if="!rating_given">
+        Drücke die Sterne um uns zu bewerten.
+      </div>
+      <div class="text-center padding-top" ng-if="rating_given">
+        <button class="button button-block button-calm button-cta" ng-click="submitRating()">Bestätigen</button>
+      </div>
+      <div class="text-center" ng-if="rating_given">
+        <a class="button button-block button-cta grey-darker" ng-click="closeReviewModal()">Später</a>
+      </div>
+    </div>
+  </ion-content></ion-modal-view>

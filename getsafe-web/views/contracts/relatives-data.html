@@ -1,0 +1,52 @@
+<ion-view cache-view="false" title="Weitere Verträge verwalten"><ion-content class="light-bg padding-small-horizontal" overflow-scroll="false">
+    <div class="flex flex-items-center flex-space-between padding">
+      <h4 class="text-light grey">
+        Lade deinen Partner zur gemeinsamen Verwaltung ein:
+      </h4>
+    </div>
+    <div class="list list-transparent">
+      <form class="validation-large" name="invitationForm" ng-class="{&#39;validation&#39;: invitationForm.$submitted}" ng-submit="submitForm(invitationForm)" novalidate="">
+        <div class="validation-errors" ng-if="invitationForm.$submitted &amp;&amp; invitationForm.$invalid">
+          <div class="validation-message" ng-if="invitationForm.userName.$error.required">
+            {{err_messages.name.required}}
+          </div>
+          <div class="validation-message" ng-if="invitationForm.userName.$error.minlength">
+            {{err_messages.name.min_length}}
+          </div>
+          <div class="validation-message" ng-if="invitationForm.userName.$error.pattern">
+            {{err_messages.name.invalid_format}}
+          </div>
+          <div class="validation-message" ng-if="invitationForm.userNumber.$error.required">
+            {{err_messages.phone.required}}
+          </div>
+          <div class="validation-message" ng-if="invitationForm.userNumber.$error.tel">
+            {{err_messages.phone.required}}
+          </div>
+        </div>
+        <div class="contracts-input-wrapper">
+          <img class="import-contacts-icon" ng-click="pickContact()" ng-show="can_import_contacts" ng-src="img/icon-import-contacts.svg" /><label class="item item-input block padding-none" ng-class="{valid: invitationForm.userName.$valid, error: invitationForm.userName.$invalid}"><small class="grey uppercase padding">Name deines Partners</small>
+            <div class="input-wrapper input-calm padding-horizontal padding-large-bottom">
+              <input class="input" id="invitation-nameInput" name="userName" ng-change="updateCanShow()" ng-class="{&#39;input-padding-import-fix&#39;: can_import_contacts}" ng-focus="pickContactWhenFirst()" ng-minlength="5" ng-model="userName" ng-pattern="fullNameRegexp" required="" type="text" />
+            </div>
+          </label>
+        </div>
+        <label class="item item-input block padding-none" ng-class="{valid: invitationForm.userNumber.$valid, error: invitationForm.userNumber.$invalid}"><small class="grey uppercase padding">Handynummer deines Partners</small>
+          <div class="input-wrapper input-calm padding-horizontal padding-bottom">
+            <input class="input" id="invitation-numberInput" name="userNumber" ng-change="updateCanShow()" ng-model="userNumber" overwrite-tel="" required="" type="tel" />
+          </div>
+          <span ng-init="setForm(invitationForm)"></span></label>
+        <div class="contracts-checkbox">
+          <ion-checkbox name="legal_terms_checked" ng-change="toggleLegalCheckbox()" ng-model="legal_terms_checked"></ion-checkbox>
+          <div class="contracts-checkbox-label">
+            Ich willige ein, dass mein Partner meine bei GetSafe verwalteten Verträge einsehen kann. Hierzu erteile ich folgenden <a class="calm underline" ng-click="showTermsModal()">Auftrag und Einwilligung</a>
+          </div>
+        </div>
+        <div class="contracts-checkbox">
+          <ion-checkbox name="legal_sms_checked" ng-change="toggleSmsCheckbox()" ng-model="legal_sms_checked"></ion-checkbox>
+          <div class="contracts-checkbox-label">
+            Mein Partner soll per SMS zur Nutzung von GetSafe eingeladen werden.
+          </div>
+        </div>
+      </form>
+    </div>
+  </ion-content></ion-view><ion-footer-bar align-title="center" class="bar bar-footer" keyboard-attach="" ng-class="can_submit ? &#39;bar-calm&#39; : &#39;bar-dark&#39;"><a class="title button-cta" id="relative-confirm" ng-click="submitInvitationForm()">Einverstanden</a></ion-footer-bar>

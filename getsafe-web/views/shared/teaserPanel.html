@@ -1,0 +1,15 @@
+<aside class="teaser-panel card clearfix" ng-if="show_teaser">
+  <div class="row">
+    <div class="col col-40">
+      <img class="teaser-visual" ng-src="{{ visual }}" />
+    </div>
+    <div class="col col-60">
+      <h3 ng-bind-html="trustAsHtml(title)"></h3>
+      <p ng-bind-html="trustAsHtml(body)">
+        >
+      </p>
+      <button class="button button-calm" ng-click="openLink()">{{ link_text || 'Leg los' }}</button>
+    </div>
+  </div>
+  <button class="teaser-close" ng-click="close()"><span hidden="true">Schließen</span></button>
+</aside>

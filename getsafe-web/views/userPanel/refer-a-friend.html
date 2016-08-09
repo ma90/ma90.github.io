@@ -1,0 +1,49 @@
+<ion-view title="Freunde einladen"><ion-content class="padding-large light-bg" delegate-handle="refer" overflow-scroll="false">
+    <div class="padding-bottom text-center">
+      <div class="padding-bottom">
+        <i class="icon icomoon icomoon-refer icon-very-large calm"></i>
+      </div>
+      <div class="padding-bottom">
+        <button class="button button-block button-calm button-cta" ng-click="pickContact()">Freund auswählen</button>
+      </div>
+      <p class="padding-top">
+        oder<br>selbst eintragen</br>
+      </p>
+    </div>
+    <div class="list list-transparent">
+      <form class="validation-large" name="form" ng-class="{&#39;validation&#39;: form.$submitted}" ng-submit="false" novalidate="">
+        <div class="validation-errors" ng-if="form.$submitted &amp;&amp; form.$invalid">
+          <div class="validation-message" ng-if="form.userName.$error.required">
+            {{err_messages.name.required}}
+          </div>
+          <div class="validation-message" ng-if="form.userName.$error.minlength">
+            {{err_messages.name.min_length}}
+          </div>
+          <div class="validation-message" ng-if="form.userName.$error.pattern">
+            {{err_messages.name.invalid_format}}
+          </div>
+          <div class="validation-message" ng-if="form.userNumber.$error.required">
+            {{err_messages.phone.required}}
+          </div>
+          <div class="validation-message" ng-if="form.userNumber.$error.tel">
+            {{err_messages.phone.required}}
+          </div>
+        </div>
+        <div class="contracts-input-wrapper">
+          <label class="item item-input block padding-none" ng-class="{valid: form.userName.$valid, error: form.userName.$invalid}"><small class="grey uppercase padding">Name</small>
+            <div class="input-wrapper input-calm padding-horizontal padding-large-bottom">
+              <input class="input" id="invitation-nameInput" name="userName" ng-minlength="2" ng-model="userName" ng-pattern="fullNameRegexp" required="" type="text" />
+            </div>
+          </label><label class="item item-input block padding-none" ng-class="{valid: form.userNumber.$valid, error: form.userNumber.$invalid}"><small class="grey uppercase padding">Handynummer</small>
+            <div class="input-wrapper input-calm padding-horizontal padding-bottom">
+              <input class="input" id="invitation-numberInput" name="userNumber" ng-model="userNumber" overwrite-tel="" required="" type="tel" />
+            </div>
+            <span ng-init="setForm(form)"></span>
+            <p class="text-center padding padding-large-bottom">
+              <small class="grey white-space-normal">Dein Freund bekommt nach der Bestätigung mit "Weiter" eine SMS mit einer Einladung zu GetSafe.</small>
+            </p>
+          </label>
+        </div>
+      </form>
+    </div>
+  </ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="{&#39;bar-stable&#39;: form.$invalid, &#39;bar-calm&#39;: form.$valid }"><a class="title button-cta" ng-click="submitManually();">Weiter</a></ion-footer-bar>

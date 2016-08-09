@@ -1,0 +1,36 @@
+<div class="list">
+  <div class="item item-thumbnail-left flex flex-content-center item-product-card item-offer-card margin-none">
+    <div class="offer-rating">
+      <img class="item-product-card-img" ng-src="{{ offer_primary.insurer.public_logo_url }}" />
+    </div>
+    <div class="offer-text">
+      <h2>
+        {{ product_title }}
+      </h2>
+      <ul class="stars">
+        <li class="star" ng-class="{&#39;star-inactive&#39;: offer_primary.tariff_rating&lt;=n}" ng-repeat="n in range(MAX_STAR_NR) track by $index"></li>
+      </ul>
+      <p ng-click="log(this)">
+        <small>{{ offer_primary.premium_interval }} nur</small>
+      </p>
+      <div class="products-price">
+        {{ offer_primary.premium | price }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="padding-large-bottom padding-none-top text-center">
+  <div class="insurance-cta">
+    <p class="padding-bottom calm">
+      {{ offer_primary.usp_text }}
+    </p>
+    <p class="padding-bottom calm"></p>
+    <button class="button button-block button-calm max-width-full button-cta" ng-click="selectOffer(offer_primary)" ng-if="!offer_primary.considered"><img class="button-cta-icon" src="img/icon-brand.png" />Jetzt abschließen</button><button class="button button-block button-calm max-width-full button-cta" ng-click="goToChat()" ng-if="offer_primary.considered"><img class="button-cta-icon" src="img/icon-brand.png" />Zum chat</button>
+  </div>
+</div>
+<div class="list list-inset list-uppercase padding-large-bottom">
+  <h4 class="grey">
+    Optionen
+  </h4>
+  <a class="item item-icon-left item-icon-right item-option" ng-click="goToDocuments()"><i class="icon icon-small icomoon icomoon-file-empty"></i>Detailvergleich als PDF<i class="icon icon-small icomoon icomoon-chevron-right stable"></i></a>
+</div>

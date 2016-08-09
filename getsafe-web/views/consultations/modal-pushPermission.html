@@ -1,0 +1,19 @@
+<ion-modal-view ng-controller="ConsultationsPushPermissionCtrl"><ion-header-bar align-title="left" class="bar-calm">
+    <div class="buttons">
+      <button class="button icon icomoon icomoon-cross" ng-click="closePermissionModal()"></button>
+    </div>
+    <h1 class="title">
+      Benachrichtigungen
+    </h1>
+  </ion-header-bar><ion-content class="light-bg text-center pading-top">
+    <h3 class="margin-none grey padding-small-top">
+      Chat-Benachrichtigungen
+    </h3>
+    <p class="padding-horizontal padding-small-vertical margin-none">
+      Willst du benachrichtigt werden über neue Chat-Nachrichten, den Status deiner Versicherungen, Änderungen oder Kündigungsfristen?
+    </p>
+    <img class="push-notification-img" src="img/notification.png" />
+    <div class="padding-bottom">
+      <button class="button button-block button-calm button-cta" ng-click="requestPermission()">Ja, bitte benachrichtige mich</button><button class="button button-block button-cta grey-darker" ng-click="closePermissionModal()">Nein, danke</button>
+    </div>
+  </ion-content></ion-modal-view>

@@ -1,0 +1,12 @@
+<div ng-class="{&#39;chat-message-last&#39;: last_message}">
+  <div class="chat-message chat-body-inline">
+    <p>
+      {{ ::message }}
+    </p>
+    <ul class="padding-left" ng-repeat="title in titles track by $index">
+      <li class="margin-none">
+        {{ ::title }}
+      </li>
+    </ul>
+  </div>
+</div>

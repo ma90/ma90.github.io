@@ -1,0 +1,20 @@
+<ion-view cache-view="false" title="{{ content[0].content }}"><ion-content class="light-bg">
+    <div class="padding-large-top">
+      <div class="content-block" ng-repeat="block in content track by $index">
+        <div ng-switch="block.type">
+          <h4 class="product_heading content-block-text" ng-switch-when="heading">
+            {{ block.content }}
+          </h4>
+          <p class="content-block-intro" ng-switch-when="intro">
+            {{ block.content }}
+          </p>
+          <p class="content-block-text" ng-switch-when="text">
+            {{ block.content }}
+          </p>
+          <img class="content-block-image img-responsive" ng-src="{{ block.src }}" ng-switch-when="image" /><button class="content-block-cta button button-block button-cta" ng-click="createConsultation(block.consultationSpec)" ng-switch-when="cta"><i class="icomoon icomoon-bubble"></i><span>{{block.link_text}}</span>
+            <div class="online-badge"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content></ion-view>

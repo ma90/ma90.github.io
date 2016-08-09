@@ -1,0 +1,8 @@
+<div class="padding-horizontal padding-very-large-top text-center">
+  <h5 class="grey margin-none padding-large-bottom">
+    {{definition.title}}<i class="icomoon icomoon-question icon-help" ng-click="showBackdrop()" ng-show="has_description"></i>
+  </h5>
+</div>
+<div class="input-wrapper input-calm padding">
+  <input autocomplete="off" autocorrect="off" class="input-full-length" ng-change="updateModel(definition.value)" ng-model="definition.value" type="{{input_type}}" /><span class="input-unit" ng-show="has_unit">{{definition.unit}}</span>
+</div>

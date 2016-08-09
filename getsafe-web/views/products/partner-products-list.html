@@ -1,0 +1,22 @@
+<h4 class="products-heading">
+  Versicherungen von {{partner_data.partner_first_name}}
+</h4>
+<div ng-if="has_products">
+  <ion-list type="list-inset margin-none"><ion-item class="item-thumbnail-left item-product flex flex-content-center product-highlighted" ng-click="goToInsurance(partner_product)" ng-repeat="partner_product in partner_data.selected_products track by $index"><img ng-src="{{partner_product.insurer.public_logo_url}}" />
+      <h2>
+        {{partner_product.product.title}}
+      </h2>
+      <p>
+        <small>{{partner_product.insurer.title}} {{intervalName(partner_product.interval)}}</small>
+      </p>
+      <div class="products-price">
+        {{partner_product.monthly | price}}
+      </div>
+    </ion-item></ion-list>
+</div>
+<p class="text-center" ng-if="!has_products &amp;&amp; !is_pending">
+  Dein Partner hat sich erfolgreich registriert. Wir holen jetzt die Versicherungsverträge bei den Versicherern ein.
+</p>
+<p class="text-center" ng-if="!has_products &amp;&amp; is_pending">
+  Wir haben deinen Partner per SMS eingeladen. Sobald er sich die App installiert und sich vollständig registriert hat, siehst du dies hier.
+</p>

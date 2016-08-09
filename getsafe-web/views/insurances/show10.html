@@ -1,0 +1,125 @@
+<ion-view cache-view="false" title="{{showInsurance.insurer.title}}"><ion-content class="content-scroll-overflow" scroll="false">
+    <div class="list">
+      <div class="item item-thumbnail-left item-thumbnail-vertically-centered flex flex-content-center item-product-card margin-none">
+        <img class="item-product-card-img" ng-src="{{showInsurance.insurer.public_logo_url}}" />
+        <h2>
+          {{showInsurance.product.title}}
+        </h2>
+        <p>
+          <small>{{showInsurance.insurer.title}}</small>
+        </p>
+        <div class="products-price">
+          {{showInsurance.monthly|price}}
+        </div>
+      </div>
+      <div class="item insurance-details padding-none-vertical" ng-class="insuranceDetailsVisible ? &#39;visible&#39; : &#39;&#39;">
+        <div class="padding-large-top padding-bottom">
+          <div class="clearfix padding-bottom insurance-details-item">
+            <p class="pull-left">
+              Versicherungsnehmer
+            </p>
+            <p class="pull-right">
+              {{showInsurance.user_full_name}}
+            </p>
+          </div>
+          <div class="clearfix padding-bottom insurance-details-item" ng-if="!is_gkv">
+            <p class="pull-left">
+              Vers.-Nr.
+            </p>
+            <p class="pull-right">
+              {{showInsurance.insurance_number}}
+            </p>
+          </div>
+          <div class="clearfix insurance-details-item">
+            <p class="pull-left">
+              Zahlungsrhytmus
+            </p>
+            <p class="pull-right">
+              {{showInsurance.interval}}
+            </p>
+          </div>
+          <div class="clearfix insurance-details-item" ng-if="is_gkv">
+            <p class="pull-left">
+              Beitragssatz
+            </p>
+            <p class="pull-right">
+              {{ showInsurance.insurer.premium_rate | percentage }}
+            </p>
+          </div>
+          <div class="clearfix insurance-details-item" ng-if="is_gkv">
+            <p class="pull-left">
+              inkl. Zusatzbeitrag von
+            </p>
+            <p class="pull-right">
+              {{ showInsurance.insurer.extra_rate | percentage }}
+            </p>
+          </div>
+          <div class="clearfix insurance-details-item" ng-if="!is_gkv">
+            <p class="pull-left">
+              Abschluss
+            </p>
+            <p class="pull-right">
+              {{formatDate(showInsurance.start)}}
+            </p>
+          </div>
+          <div class="clearfix insurance-details-item" ng-if="!is_gkv">
+            <p class="pull-left">
+              Vertragsende
+            </p>
+            <p class="pull-right">
+              {{formatDate(showInsurance.end)}}
+            </p>
+          </div>
+          <div class="clearfix insurance-details-item">
+            <p class="pull-left">
+              Aktualisiert
+            </p>
+            <p class="pull-right">
+              {{formatDate(showInsurance.updated_at.substring(0,10))}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row flex flex-content-center flex-items-center light-bg">
+        <div class="insurance-details-toggle-handler flex flex-content-center flex-items-center" ng-click="toggleInsuranceDetails()">
+          Details <i class="icon icon-small icon-padding icomoon" ng-class="insuranceDetailsVisible ? &#39;icomoon-chevron-up&#39; : &#39;icomoon-chevron-down&#39;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="padding-large-bottom padding-none-top text-center">
+      <div class="insurance-cta" ng-if="isFromPartner()">
+        <p class="padding-bottom">
+          Zahle nie wieder zu viel für deine Versicherung! Nutze den kostenlosen GetSafe Tarif-Check.
+        </p>
+        <button class="button button-block button-calm max-width-full button-cta" ng-click="dummyPartnerOptimization()"><img class="button-cta-icon" src="img/icon-brand.png" />Tarif checken</button>
+      </div>
+    </div>
+    <div class="padding-large-bottom padding-none-top text-center" ng-if="productOptimizationPossible()">
+      <div class="insurance-cta" ng-if="showConsultationButton()">
+        <p class="padding-bottom">
+          Zahle nie wieder zu viel für deine Versicherung! Nutze den kostenlosen GetSafe Tarif-Check.
+        </p>
+        <button class="button button-block button-calm max-width-full button-cta" ng-class="{&quot;button-loading&quot;: !loaded}" ng-click="showTariff()"><img class="button-cta-icon" src="img/icon-brand.png" />Tarif checken</button>
+      </div>
+    </div>
+    <div class="dark padding" ng-if="canShowWonMessage()">
+      Dein Tarif wurde erfolgreich gecheckt.
+    </div>
+    <div class="padding-large-bottom padding-none-top text-center" ng-if="showChatButton()">
+      <div class="dark padding">
+        <button class="button button-block button-calm max-width-full button-cta" ng-class="{&quot;button-loading&quot;: !loaded}" ng-click="goToChat()"><img class="button-cta-icon" src="img/icon-brand.png" />Zum chat</button>
+      </div>
+    </div>
+    <div class="list list-inset list-uppercase padding-large-bottom" ng-if="!isFromPartner() &amp;&amp; !is_gkv">
+      <h4 class="grey">
+        Optionen<i class="icon icon-small icomoon stable"></i>
+      </h4>
+      <a class="item item-icon-left item-icon-right item-option" ng-click="readPDF()"><i class="icon icon-small icomoon icomoon-file-empty"></i>Vertrag als PDF ansehen<i class="icon icon-small icomoon icomoon-chevron-right stable"></i></a><a class="item item-icon-left item-icon-right item-option" ng-click="reportDamageOnInsurancePage()" ng-if="damage_reportable"><i class="icon icon-small icomoon icomoon-warning"></i>{{ claim_chat_text }}<i class="icon icon-small icomoon icomoon-chevron-right stable"></i></a>
+    </div>
+    <div class="list list-inset list-uppercase padding-large-bottom" ng-if="!isFromPartner() &amp;&amp; is_gkv">
+      <h4 class="grey">
+        Optionen<i class="icon icon-small icomoon stable"></i>
+      </h4>
+      <a class="item item-icon-left item-icon-right item-option" ng-click="editGKV()"><i class="icon icon-small icomoon icomoon-pencil"></i>Beitrag bearbeiten<i class="icon icon-small icomoon icomoon-chevron-right stable"></i></a>
+    </div>
+  </ion-content></ion-view>

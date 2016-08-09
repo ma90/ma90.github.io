@@ -1,0 +1,24 @@
+<ion-view cache-view="false" title="Weitere Verträge verwalten"><ion-content class="light-bg">
+    <div class="text-center padding-horizontal padding-top">
+      <h5 class="border-stable-bottom grey margin-none padding-bottom">
+        Bitte wähle den Versicherungsschutz aus, den du vermisst.
+      </h5>
+    </div>
+    <ul class="list list-table list-transparent margin-none" ng-repeat="product in products track by product.id">
+      <li class="item item-checkbox" ng-class="{&#39;checked&#39;: product.checked}">
+        <label class="checkbox"><input ng-click="updateCanShow()" ng-model="product.checked" type="checkbox" /></label>{{product.title}}
+      </li>
+      <li class="item item-input block" ng-show="product.checked">
+        <label><small class="uppercase grey">Versicherungsnummer</small>
+          <div class="input-wrapper input-calm padding">
+            <input ng-change="updateCanShow()" ng-model="product.insurance_number" type="text" />
+          </div>
+        </label>
+      </li>
+    </ul>
+    <div class="text-center padding " ng-hide="hide_button">
+      <p class="border-stable-bottom padding-bottom" ng-click="getAllProducts()">
+        + MEHR ANZEIGEN
+      </p>
+    </div>
+    <ion-infinite-scroll distance="20%" ng-if="moreDataAvailable()" on-infinite="loadMore()"></ion-infinite-scroll></ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="can_show ? &#39;bar-calm&#39; : &#39;bar-dark&#39;"><a class="title button-cta" id="missing-products-confirm" ng-click="submit()">Weiter</a></ion-footer-bar>

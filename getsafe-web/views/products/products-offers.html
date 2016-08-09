@@ -1,0 +1,16 @@
+<section ng-hide="noOffers()">
+  <h4 class="products-heading">
+    Aktuell
+  </h4>
+  <ion-list type="list-inset margin-none"><ion-item class="item-thumbnail-left item-product item-offer flex flex-content-center" ng-click="goToBuyProductOffer(offer.conversation_id, offer.id)" ng-repeat="offer in buy_product_documents"><img ng-src="{{offer.offers[0].insurer.public_logo_url}}" />
+      <p class="products-offer-title">
+        Angebot:
+      </p>
+      <p>
+        {{ offer.product.title }}
+      </p>
+      <p>
+        <strong>ab {{ offer.offers[0].premium | price }}</strong>
+      </p>
+    </ion-item></ion-list>
+</section>

@@ -1,0 +1,8 @@
+<div class="padding-very-large-top">
+  <h5 class="padding-large-horizontal grey text-center">
+    {{options.templateOptions.title}}<i class="icomoon icomoon-question icon-help" ng-click="showBackdrop()" ng-show="!!options.templateOptions.description"></i>
+  </h5>
+  <div class="option-picker-container padding">
+    <label class="option-picker" ng-class="{&#39;checked&#39;: opt.checked}" ng-repeat="opt in options.templateOptions.select_options track by $index"><input ng-click="toggle($index, opt[1])" ng-model="opt.checked" type="checkbox">{{opt[0]}}</input></label>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div ng-class="{&#39;chat-message-last&#39;: last_message}">
+  <div class="chat-message chat-message-body admin-message">
+    <p class="margin-none">
+      Beantworte mir bitte ein paar Fragen:
+    </p>
+    <div class="flex flex-items-center padding-small-bottom padding-small-top">
+      <img class="admin-message-form-thumbnail" src="img/form.svg" />
+      <div class="admin-message-info">
+        <h5 class="admin-message-form-title">
+          {{ ::title }}
+        </h5>
+        <p class="admin-message-form-preview">
+          Der schnellste Weg um dir ein passendes Angebot zu berechnen.
+        </p>
+      </div>
+    </div>
+    <div class="admin-message-confirm" ng-class="{calm : false, assertive : false, &#39;&#39; : true}" ng-click="fetchForm()">
+      {{ status }}<i class="icomoon" ng-class="complete ? &#39;icomoon-check admin-message-confirm-icon&#39; : &#39;icomoon-chevron-right&#39;"></i>
+    </div>
+  </div>
+</div>

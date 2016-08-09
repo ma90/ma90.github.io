@@ -1,0 +1,12 @@
+<ion-view cache-view="false" class="light-bg" hide-nav-bar="true" title="Unterschreiben"><ion-header-bar class="bar-light-bg calm"><back-to-state-button class="flex padding-large-right" target-state="register-stepPoa"></back-to-state-button>
+    <h1 class="title title-left calm">
+      Unterschreiben
+    </h1>
+  </ion-header-bar><ion-content scroll="false">
+    <div class="signature-pad-header">
+      <i class="icon icon-small icomoon icomoon-trash2" ng-click="clearCanvas()" ng-if="signatureValid"></i>
+    </div>
+    <div class="signature-pad">
+      <canvas class="signature-pad-canvas" ng-click="validCanvas()"></canvas>
+    </div>
+  </ion-content><ion-footer-bar align-title="center" ng-class="signatureValid ? &#39;bar-calm&#39; : &#39;bar-dark&#39;"><a class="title button-cta" id="signature-confirm" ng-click="nextStep()">Weiter</a></ion-footer-bar></ion-view>

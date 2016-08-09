@@ -1,0 +1,11 @@
+<ion-list type="list-inset margin-none"><ion-item class="item-thumbnail-left item-product flex flex-content-center product-highlighted" ng-click="goToInsurance(insurance)" ng-repeat="insurance in insurances track by $index"><img ng-src="{{insurance.insurer.public_logo_url}}" />
+    <h2>
+      {{insurance.product.title}}
+    </h2>
+    <p>
+      <small>{{insurance.insurer.title}} {{intervalName(insurance.interval)}}</small>
+    </p>
+    <div class="products-price">
+      {{insurance.monthly | price}}
+    </div>
+  </ion-item></ion-list>

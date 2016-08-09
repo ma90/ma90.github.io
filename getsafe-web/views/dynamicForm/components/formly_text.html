@@ -1,0 +1,8 @@
+<div class="padding-horizontal padding-very-large-top text-center">
+  <h5 class="grey margin-none padding-large-bottom">
+    {{options.templateOptions.title}}<i class="icomoon icomoon-question icon-help" ng-click="showBackdrop()" ng-show="options.templateOptions.description"></i>
+  </h5>
+</div>
+<div class="input-wrapper input-calm padding">
+  <input class="input-full-length" ng-change="verify(value)" ng-model="value" type="{{input_type}}" /><span class="input-unit" ng-show="!!options.templateOptions.unit">{{options.templateOptions.unit}}</span>
+</div>

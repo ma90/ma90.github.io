@@ -1,0 +1,6 @@
+<div class="flex" ng-if="!message.app_user_message &amp;&amp; message.__parts[0].mimeType!=&#39;application/getsafe.consultation-rating&#39;">
+  <img class="chat-agent-avatar" ng-src="{{admin.avatar_url}}" />
+  <div class="chat-agent-timestamp">
+    {{ ::admin.display_name }}<br />{{ ::message.sent_at_display }}
+  </div>
+</div>

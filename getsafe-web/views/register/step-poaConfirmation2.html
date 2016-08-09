@@ -1,0 +1,68 @@
+<ion-header-bar class="bar-calm"><button class="button back-button buttons" ng-click="goBack()"><i class="icon icomoon icomoon-chevron-left"></i></button>
+  <h1 class="title title-left">
+    Maklermandat
+  </h1>
+</ion-header-bar><ion-view cache-view="false" hide-nav-bar="true" title="Maklermandat"><ion-content class="padding-small">
+    <div class="agreement-page">
+      <div class="agreement-page-bar">
+        <p>
+          GetSafe Maklermandat
+        </p>
+        <p>
+          4
+        </p>
+      </div>
+      <p>
+        Das Mandat ist unbefristet erteilt und kann vom Kunden jederzeit durch Nachricht an GetSafe in Textform (per Post, E-Mail oder Telefax) oder telefonisch widerrufen werden. GetSafe kann verlangen, dass ein mündlicher Widerruf in Textform bestätigt wird.
+      </p>
+      <strong>Datenschutzklausel:</strong>
+      <p>
+        Der Mandant willigt ausdrücklich ein in das Abfragen, Entgegennehmen, Speichern und Verarbeiten sowie die Weitergabe an Dritte von Informationen und Auskünften zu bestehenden Verträgen des Mandanten und seiner Person bei den Versicherern und Dritten, einschließlich Angaben zu Gesundheitsverhältnissen. Dritte in diesem Sinne sind insbesondere Maklerpools und Dienstleistungsanbieter, die ihrerseits zum Schutz der Daten des Mandanten verpflichtet sind. Gesundheitsbezogene Daten werden nur abgefragt, entgegengenommen, gespeichert, verarbeitet und weitergeben, soweit dies für die ordnungsgemäße Erfüllung des Mandats erforderlich ist. Von der Einwilligung ausgeschlossen sind sensible Daten nach § 3 Abs. 9 BDSG, außer der Gesundheit. Sollte der Auskunftserteilung gegenüber GetSafe eine Pflicht zur Verschwiegenheit entgegenstehen, so wird der Verpflichtete hiermit ausdrücklich von der Schweigepflicht entbunden.
+      </p>
+      <p>
+        GetSafe darf gespeicherte Daten des Mandanten zur werblichen Ansprache des Mandanten nutzen. Die Einwilligung zur werblichen Ansprache kann jederzeit per E-Mail an kunden@getsafe.de widerrufen werden.
+      </p>
+      Im Übrigen gelten die<span class="calm"> Datenschutzerklärung</span> und die<span class="calm"> Allgemeinen Nutzungs- und Geschäftsbedingungen</span> von GetSafe.
+      <p>
+        Im Fall der Unwirksamkeit einer Bestimmung dieses Maklermandats bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+      </p>
+      <div class="row padding-none">
+        <div class="col">
+          <p class="margin-none">
+            <strong><small>Kunde</small></strong>
+          </p>
+          <small></small>("Mandant")
+        </div>
+        <div class="col">
+          <p class="margin-none">
+            <strong><small>Plan Forward GmbH</small></strong>
+          </p>
+          <small></small>("Versicherungsmakler")
+        </div>
+      </div>
+      <div class="row padding-none-horizontal agreement-signature-container">
+        <div class="col text-center">
+          <img class="agreement-page-signature" ng-src="{{ signatureImgSrc() }}" />
+        </div>
+        <div class="col text-center">
+          <img class="img-responsive" src="img/signature_christian.png" />
+        </div>
+      </div>
+      <div class="row padding-none-horizontal">
+        <div class="col text-center">
+          <div class="agreement-signature-line">
+            {{user.vorname}} {{user.name}},<br />{{date | date:"dd.MM.yyyy H:mm"}}
+          </div>
+        </div>
+        <div class="col text-center">
+          <div class="agreement-signature-line">
+            Christian Wiens, Geschäftsführer
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="backdrop visible active">
+    <i class="backdrop-icon-check icon icomoon icomoon-check"></i>
+  </div>
+</ion-view><ion-footer-bar align-title="center" class="bar-calm"><a class="title button-cta" ng-click="submit()">Weiter</a></ion-footer-bar>

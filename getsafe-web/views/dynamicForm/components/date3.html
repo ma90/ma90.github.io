@@ -1,0 +1,37 @@
+<div class="padding-very-large-top">
+  <h5 class="padding-large-horizontal grey text-center">
+    {{definition.title}}<i class="icomoon icomoon-question icon-help" ng-click="showBackdrop()" ng-show="has_description"></i>
+  </h5>
+  <div class="item item-select-date input-wrapper">
+    <div class="select-date-field">
+      <select ng-change="computeDate()" ng-model="date.day">
+        <option value="">
+          Tag
+        </option>
+        <option ng-repeat="day in days track by $index" ng-selected="day == date.day" value="{{day}}">
+          {{day}}
+        </option>
+      </select>
+    </div>
+    <div class="select-date-field">
+      <select ng-change="computeDate()" ng-model="date.month">
+        <option value="">
+          Monat
+        </option>
+        <option ng-repeat="month in months track by $index" ng-selected="month == date.month" value="{{month}}">
+          {{month}}
+        </option>
+      </select>
+    </div>
+    <div class="select-date-field">
+      <select ng-change="computeDate()" ng-model="date.year">
+        <option value="">
+          Jahr
+        </option>
+        <option ng-repeat="year in years track by $index" ng-selected="year == date.year" value="{{year}}">
+          {{year}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

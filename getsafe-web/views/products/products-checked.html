@@ -1,0 +1,9 @@
+<ion-list ng-hide="noInsurers()" type="list-inset margin-none"><ion-item class="item item-gkv item-thumbnail-left item-product item-light flex flex-content-center" ng-click="insurerTileClicked(insurer)" ng-repeat="insurer in insurers track by $index"><img ng-src="{{insurer.data.public_logo_url}}" />
+    <p>
+      <i class="icon ion-alert-circled assertive" ng-if="progressAlert(insurer)"></i> {{insurer.progress.progress_status}}
+    </p>
+    <div class="item-progressbar {{progressAlert(insurer) &amp;&amp; &#39;item-progressbar-assertive&#39; || &#39;&#39;}}" style="width: {{progressLevelInPercent(insurer)}};"></div>
+    <p>
+      <small>{{insurer.data.title}}</small>
+    </p>
+    <a class="item-gkv-cta" ng-if="gkvCanBeAdded(insurer)">Jetzt Freischalten</a></ion-item></ion-list>

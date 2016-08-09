@@ -1,0 +1,23 @@
+<ion-view cache-view="false" hide-nav-bar="true"><ion-header-bar align-title="left" class="bar-calm"><button class="flex button back-button" default-nav-back-button="" ng-click="goBack()"><i class="icomoon icomoon-chevron-left"></i></button>
+    <ul class="indicator-coverage" data-indicator-query-step="{{current_question.id}}">
+      <li class="indicator-item-complete">
+        1
+      </li>
+      <li>
+        2
+      </li>
+      <li>
+        3
+      </li>
+      <li>
+        4
+      </li>
+    </ul>
+  </ion-header-bar><ion-content class="light-bg padding text-center"><img class="coverage-img padding-very-large-top" src="img/coverage/{{current_question.slug}}.png" />
+    <h4 class="grey padding">
+      {{ current_question.text }}
+    </h4>
+    <div class="padding coverage-radio-container">
+      <ion-radio class="item-text-wrap" ng-click="goToNext()" ng-model="choosen_answer.value" ng-repeat="answer in answers" ng-value="answer">{{ answer }}</ion-radio>
+    </div>
+  </ion-content></ion-view>

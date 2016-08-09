@@ -1,0 +1,19 @@
+<ion-view title="Deine Beratung: Dokumente"><ion-nav-buttons side="right"><button class="button" ng-class="{&#39;inactive&#39;: isEmpty(document_sections)}" ng-click="notifyUser()"><img class="chat-icon-callback" src="img/icon-mail.svg" /></button></ion-nav-buttons><ion-content class="chat"><ion-refresher on-refresh="getDocuments()" pulling-text="Aktualisiere..."></ion-refresher>
+    <p class="flex flex-content-center docs-empty" ng-if="isEmpty(document_sections)">
+      Hier werden Dokumente zu deiner Beratung abgelegt.
+    </p>
+    <div class="list">
+      <div ng-repeat="sections in document_sections track by $index">
+        <div class="item item-divider" ng-if="sections.title">
+          <span>{{ sections.title }}</span>
+        </div>
+        <div ng-repeat="doc in sections.documents track by doc.id">
+          <a class="item doc-item" href="" ng-click="readPDF(doc.id)">
+            <div class="doc-text">
+              <span class="doc-title">{{ doc.title }}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content></ion-view>

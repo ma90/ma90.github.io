@@ -1,0 +1,15 @@
+<div class="separator">
+  <div class="separator-container">
+    <img class="img-separator" ng-src="img/separators/{{separator_src}}.svg" />
+    <div class="inline-block">
+      <h3 class="separator-title padding-small-bottom">
+        {{separator_text}}
+      </h3>
+      <ul class="list-ticks text-left padding-small-left">
+        <li ng-repeat="item in separator_items track by $index">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

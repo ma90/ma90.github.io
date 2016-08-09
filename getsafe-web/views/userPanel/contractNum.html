@@ -1,0 +1,19 @@
+<ion-view title="Versicherungsnummer"><ion-content overflow-scroll="false">
+    <div class="padding padding-large-top">
+      <p>
+        Folgende Gesellschaft kann zu deinen bisherigen Angaben keinen Versicherungsvertrag finden, bei dem du Versicherungsnehmer bist: <b>{{title}}</b>
+      </p>
+      <p>
+        Versicherungsnummer angeben
+      </p>
+    </div>
+    <form name="contractForm" novalidate="">
+      <div class="list padding-none">
+        <label class="item item-input"><span class="input-label">Versicherungsnummer</span><input name="contractNum" ng-model="contractNum" placeholder="xxx" required="" type="text" /><span ng-init="setForm(contractForm)"></span></label>
+      </div>
+    </form>
+    <button class="button button-block button-positive" ng-click="submit()">Senden</button>
+    <div class="item item-divider text-light-small error-button" ng-click="contractNumUnknown()">
+      Ich habe keine Versicherungsnummer
+    </div>
+  </ion-content></ion-view>

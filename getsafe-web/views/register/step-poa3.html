@@ -1,0 +1,195 @@
+<ion-view hide-nav-bar="true" title="Maklermandat"><ion-header-bar class="bar-calm"><back-to-state-button class="flex padding-large-right" target-state="register-stepSignatureExplain"></back-to-state-button>
+    <h1 class="title title-left">
+      Maklermandat
+    </h1>
+  </ion-header-bar>
+  <div class="agreement-reading-mode-toolbar bar">
+    <i class="icon icon-small icomoon icomoon-file-empty agreement-reading-mode-toolbar-icon" ng-class="{&#39;inactive&#39; : reading_mode}" ng-click="toogleReadingMode()"></i><i class="icon icon-small icomoon icomoon-eye agreement-reading-mode-toolbar-icon" ng-class="{&#39;inactive&#39; : !reading_mode}" ng-click="toogleReadingMode()"></i>
+  </div>
+  <ion-content>
+    <div ng-class="{&#39;agreement-reading-mode&#39;: reading_mode}">
+      <div class="agreement-page">
+        <div class="agreement-page-bar">
+          <p>
+            GetSafe Maklermandat
+          </p>
+          <p>
+            1
+          </p>
+        </div>
+        <img class="agreement-brand" src="img/logo.png" />
+        <h4>
+          Maklermandat
+        </h4>
+        <p>
+          Um deine Vertragsdaten abfragen und dich bei deinen Versicherungen
+          betreuen zu können musst du GetSafe durch Unterzeichnen
+          der Maklermandat als Ansprechpartner für deine Versicherungen
+          bestätigen.
+        </p>
+        <p>
+          Dazu bitten wir Dich das untenstehende Maklermandat auf
+          der vorherigen Seite digital zu signieren.
+        </p>
+        <p>
+          <strong>Was bedeutet das für Dich?</strong>
+        </p>
+        <ul class="agreement-list">
+          <li>
+            Es verändert sich nichts an Deinem Versicherungsschutz.
+          </li>
+          <li>
+            Durch GetSafe entstehen keine Mehrkosten.
+          </li>
+          <li>
+            Du kannst das Maklermandat jederzeit widerrufen.
+          </li>
+          <li>
+            GetSafe darf ohne Einwilligung keine Verträge für Dich abschließen.
+          </li>
+        </ul>
+      </div>
+      <div class="agreement-page">
+        <div class="agreement-page-bar">
+          <p>
+            GetSafe Maklermandat
+          </p>
+          <p>
+            2
+          </p>
+        </div>
+        <p>
+          <strong>Maklermandat</strong>
+        </p>
+        <p>
+          zwischen
+        </p>
+        <p>
+          {{user.vorname}} {{user.name}}<br />{{user.street}}<br />{{user.zip}} {{user.place}}<br />- nachstehend "Mandant" genannt -<br />
+        </p>
+        <p>
+          und
+        </p>
+        <p class="margin-none">
+          Plan Forward GmbH<br />Waldhofer Str.  102<br />D-69123 Heidelberg
+        </p>
+        <p class="padding-top">
+          Geschäftsführer: Christian Wiens, Marius Blaesing<br />Handelsregister: Amtsgericht Mannheim  HRB 718171<br />Vermittlerregisternummer: D-4V95-B0VXG-67
+        </p>
+        <p>
+          als zugelassener Versicherungsmakler gem. § 34d Abs. 1 GewO und verantwortlicher Anbieter von GetSafe<br />- nachstehend "GetSafe" genannt –
+        </p>
+        <p>
+          Der Mandant bevollmächtigt hierdurch GetSafe zur Betreuung seiner Versicherungsangelegenheiten sowie zur Vermittlung des vom Mandant gewollten Versicherungsschutzes.
+        </p>
+        <p class="margin-none">
+          <strong>Dieses Vollmacht umfasst insbesondere:</strong>
+        </p>
+        <ol>
+          <li>
+            die uneingeschränkte aktive und passive Vertretung des Mandanten gegenüber den Versicherern einschließlich der Abgabe und Entgegennahme aller die Versicherungsverträge betreffenden Willenserklärungen. Hierzu zählen auch die Abgabe und Entgegennahme von rechtsgestaltenden Willenserklärungen zum Zweck des Abschlusses, der Änderung sowie der Kündigungen von Versicherungsverträgen
+          </li>
+          <li>
+            die Abgabe von Wissenserklärungen und Informationen zu Versicherungsverträgen (zB Anzeigen zur Erfüllung von Obliegenheiten) gegenüber Versicherern und sonstigen Dritten, soweit es zur Erfüllung des Maklermandats erforderlich ist
+          </li>
+        </ol>
+      </div>
+      <div class="agreement-page">
+        <div class="agreement-page-bar">
+          <p>
+            GetSafe Maklermandat
+          </p>
+          <p>
+            3
+          </p>
+        </div>
+        <ol start="3">
+          <li>
+            das Führen des Post- und Schriftverkehrs für den Mandanten mit Versicherern und sonstigen Dritten, soweit es zur Erfüllung des Maklermandats erforderlich ist
+          </li>
+          <li>
+            die Entgegennahme von vertragsbezogenen Informationen im Sinne des § 7 VVG, die das jeweilige Versicherungsunternehmen dem Mandant als Versicherungsnehmer vor Vertragserklärung zu übergeben hat. Hierzu zählen insbesondere Allgemeine und Besondere Bedingungen, Produktinformationsblätter und Verbraucherinformationen
+          </li>
+          <li>
+            die Digitalisierung sämtlicher Korrespondenz und Unterlagen des   Mandanten sowie dieVernichtung der Originale, soweit dies gesetzlich  zulässig ist und den Interessen des Mandanten nicht entgegensteht
+          </li>
+          <li>
+            die Geltendmachung der Versicherungsleistungen aus betreuten bzw. vermittelten Versicherungsverhältnissen ohne die Entgegennahme von Leistungen
+          </li>
+          <li>
+            die sonstige Mitwirkung bei der Schadensregulierung im Rahmen der von GetSafe vermittelten und verwalteten Verträge
+          </li>
+          <li>
+            die Erteilung von Untervollmachten an andere Versicherungsmakler oder Finanzdienstleister, insbesondere Maklerpools, soweit dies zur Erfüllung des Mandats sinnvoll ist.
+          </li>
+        </ol>
+        <p>
+          Vorgenannte Vollmacht gilt auch für den Fall, dass ein Versicherungsvertrag nicht durch GetSafe vermittelt wurde. Sie gilt auch für alle zukünftig über die App, Webseite oder anderweitig zur Verwaltung durch GetSafe bestimmten Versicherungsverträge des Mandanten, soweit ein Maklermandat nicht noch einmal ausdrücklich vereinbart wird. Sie gilt auch für einen eventuellen Rechtsnachfolger von GetSafe. Der Kunde stimmt durch diese Erklärung einer Bestandsfreigabe und/oder -übertragung seiner Versicherungsverträge auf GetSafe zu.
+        </p>
+        <p>
+          GetSafe ist nicht verpflichtet, von der Bevollmächtigung nach eigenem Ermessen Gebrauch zu machen. Insbesondere liegt es im Ermessen von GetSafe eine Bestandsübertragung zu veranlassen.
+        </p>
+        <p>
+          GetSafe ist von den Beschränkungen des § 181 BGB (Insichgeschäft) befreit.
+        </p>
+      </div>
+      <div class="agreement-page" ng-controller="RegisterRequestCodeCtrl">
+        <div class="agreement-page-bar">
+          <p>
+            GetSafe Maklermandat
+          </p>
+          <p>
+            4
+          </p>
+        </div>
+        <p>
+          Das Mandat ist unbefristet erteilt und kann vom Kunden jederzeit durch Nachricht an GetSafe in Textform (per Post, E-Mail oder Telefax) oder telefonisch widerrufen werden. GetSafe kann verlangen, dass ein mündlicher Widerruf in Textform bestätigt wird.
+        </p>
+        <strong>Datenschutzklausel:</strong>
+        <p>
+          Der Mandant willigt ausdrücklich ein in das Abfragen, Entgegennehmen, Speichern und Verarbeiten sowie die Weitergabe an Dritte von Informationen und Auskünften zu bestehenden Verträgen des Mandanten und seiner Person bei den Versicherern und Dritten, einschließlich Angaben zu Gesundheitsverhältnissen. Dritte in diesem Sinne sind insbesondere Maklerpools und Dienstleistungsanbieter, die ihrerseits zum Schutz der Daten des Mandanten verpflichtet sind. Gesundheitsbezogene Daten werden nur abgefragt, entgegengenommen, gespeichert, verarbeitet und weitergeben, soweit dies für die ordnungsgemäße Erfüllung des Mandats erforderlich ist. Von der Einwilligung ausgeschlossen sind sensible Daten nach § 3 Abs. 9 BDSG, außer der Gesundheit. Sollte der Auskunftserteilung gegenüber GetSafe eine Pflicht zur Verschwiegenheit entgegenstehen, so wird der Verpflichtete hiermit ausdrücklich von der Schweigepflicht entbunden.
+        </p>
+        <p>
+          GetSafe darf gespeicherte Daten des Mandanten zur werblichen Ansprache des Mandanten nutzen. Die Einwilligung zur werblichen Ansprache kann jederzeit per E-Mail an kunden@getsafe.de widerrufen werden.
+        </p>
+        Im Übrigen gelten die<a class="calm" ng-click="showPrivacyModal()"> Datenschutzerklärung</a> und die<a class="calm" ng-click="showTermsModal()"> Allgemeinen Nutzungs- und Geschäftsbedingungen</a> von GetSafe.
+        <p class="margin-none">
+          Im Fall der Unwirksamkeit einer Bestimmung dieses Maklermandats bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+        </p>
+        <div class="row padding-none">
+          <div class="col">
+            <p class="margin-none">
+              <strong><small>Kunde</small></strong>
+            </p>
+            <small></small>("Mandant")
+          </div>
+          <div class="col">
+            <p class="margin-none">
+              <strong><small>Plan Forward GmbH</small></strong>
+            </p>
+            <small></small>("Versicherungsmakler")
+          </div>
+        </div>
+        <div class="row padding-none-horizontal">
+          <div class="col text-center">
+            <a class="button-proceed-agreement" ng-click="nextStep()"><i class="icon icon-small icomoon icomoon-pencil"></i></a>
+          </div>
+          <div class="col text-center">
+            <img class="img-responsive" src="img/signature_christian.png" />
+          </div>
+        </div>
+        <div class="row padding-none-horizontal">
+          <div class="col text-center">
+            <div class="agreement-signature-line">
+              {{user.vorname}} {{user.name}},<br />{{date | date:"dd.MM.yyyy H:mm"}}
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="agreement-signature-line">
+              Christian Wiens, Geschäftsführer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content></ion-view><ion-footer-bar align-title="center" class="bar-calm"><a class="title button-cta" ng-click="nextStep()">Zur unterschrift</a></ion-footer-bar>

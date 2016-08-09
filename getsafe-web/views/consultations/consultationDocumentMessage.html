@@ -1,0 +1,21 @@
+<div ng-class="{&#39;chat-message-last&#39;: last_message}">
+  <div class="chat-message chat-message-body admin-message">
+    <p class="margin-none">
+      Wir haben dir ein neues Dokument freigegeben:
+    </p>
+    <div class="flex flex-items-center padding-small-bottom padding-small-top">
+      <img class="admin-message-form-thumbnail" src="img/icon-pdf.svg" />
+      <div class="admin-message-info">
+        <h5 class="admin-message-form-title">
+          {{ ::title }}
+        </h5>
+        <p class="admin-message-form-preview">
+          PDF Dokument
+        </p>
+      </div>
+    </div>
+    <div class="admin-message-confirm" ng-click="goToDocumentBox()">
+      Jetzt anzeigen<i class="icomoon icomoon-chevron-right"></i>
+    </div>
+  </div>
+</div>

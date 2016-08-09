@@ -1,0 +1,10 @@
+<div class="padding-horizontal padding-very-large-top text-center">
+  <h5 class="grey border-stable-bottom margin-none padding-large-bottom">
+    {{options.templateOptions.title}}<i class="icomoon icomoon-question icon-help" ng-click="showBackdrop()" ng-show="!!options.templateOptions.description"></i>
+  </h5>
+</div>
+<ul class="list list-table list-transparent">
+  <li class="item item-checkbox" ng-class="{&#39;checked&#39;: opt.checked}" ng-repeat="opt in options.templateOptions.select_options track by $index">
+    <label class="checkbox"><input ng-click="toggle($index, opt[1])" ng-model="opt.checked" type="checkbox" /></label>{{opt[0]}}
+  </li>
+</ul>

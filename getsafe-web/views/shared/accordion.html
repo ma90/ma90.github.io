@@ -1,0 +1,5 @@
+<ion-list class="list-transparent">
+  <div class="border-stable-bottom" ng-repeat="group in groups track by $index">
+    <ion-item class="item-light item-icon-right item-accordion-heading" ng-class="{active: isGroupShown(group)}" ng-click="toggleGroup(group)">{{::group.title}}<i class="icon icon-extra-small icomoon" ng-class="isGroupShown(group) ? &#39;icomoon-chevron-up&#39; : &#39;icomoon-chevron-down&#39;"></i></ion-item><ion-item class="item-accordion" ng-bind-html="::group.content" ng-show="isGroupShown(group)"></ion-item>
+  </div>
+</ion-list>

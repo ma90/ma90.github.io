@@ -1,0 +1,9 @@
+<ion-view cache-view="false" title="Weitere Verträge hinzufügen"><ion-content class="light-bg"><ion-item class="text-center" ng-if="loadingInsurers"><ion-spinner></ion-spinner></ion-item><label class="item-input-wrapper light-bg padding-top padding-bottom padding-large-right padding-large-left"><input class="search-filter" ng-change="search()" ng-model="autocomplete.search_filter" placeholder="Wähle eine Versicherung" type="search">
+        <div class="search-border-extend" ng-class="{&#39;search-border-full-width&#39;: autocomplete.search_filter.length}"></div>
+        <i class="icon icon-small icomoon icomoon-magnifier"></i></input></label>
+    <ul class="list list-table list-transparent" ng-if="!loadingInsurers">
+      <li class="item item-checkbox" ng-class="{&#39;checked&#39;: insurer.checked}" ng-repeat="insurer in insurers track by insurer.id">
+        <label class="checkbox"><input ng-click="selectInsurer($index, insurer.id)" ng-model="insurer.checked" type="checkbox" /></label>{{insurer.title}}
+      </li>
+    </ul>
+    <ion-infinite-scroll distance="20%" ng-if="moreDataAvailable()" on-infinite="loadMore()"></ion-infinite-scroll></ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="can_show ? &#39;bar-calm&#39; : &#39;bar-dark&#39;"><a class="title button-cta" id="insurers-confirm" ng-click="submit()">Weiter</a></ion-footer-bar>

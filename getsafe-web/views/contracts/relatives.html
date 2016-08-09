@@ -1,0 +1,22 @@
+<ion-view cache-view="false" title="Weitere Verträge verwalten"><ion-content class="light-bg">
+    <div class="padding-horizontal padding-top text-center">
+      <h4 class="grey border-stable-bottom padding-bottom margin-none">
+        Auf wen läuft der Vertrag?
+      </h4>
+    </div>
+    <ul class="list list-table list-transparent">
+      <li class="item item-checkbox" ng-class="{&#39;checked&#39;: relative.checked}" ng-repeat="relative in relatives track by $index">
+        <label class="checkbox"><input ng-click="selectRelative($index)" ng-model="relative.checked" type="checkbox" /></label>{{relative.name}}
+      </li>
+    </ul>
+    <div class="text-center" ng-show="can_show">
+      <h4 class="padding-top grey">
+        Möchtest du deine Verträge gemeinsam mit deinem Partner verwalten?
+      </h4>
+    </div>
+    <div class="padding-bottom text-center" ng-show="can_show">
+      <h4 class="padding grey">
+        Hier findest du mehr Infos zur <a class="calm underline" ng-click="showTermsModal()">GetSafe-Partnerfunktion.</a>
+      </h4>
+    </div>
+    <br /><br /></ion-content></ion-view><ion-footer-bar align-title="center" class="bar-calm" keyboard-attach="" ng-show="can_show"><a class="title button-cta" id="relative-confirm" ng-click="submit()">Ja, weiter</a></ion-footer-bar>
