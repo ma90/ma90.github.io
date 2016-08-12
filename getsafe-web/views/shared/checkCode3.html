@@ -1,27 +1,32 @@
 <ion-view cache-view="false" title="Anmelden"><ion-content class="light-bg" overflow-scroll="false">
-    <div class="list list-transparent">
-      <form autocomplete="off" name="form" ng-class="{&#39;validation&#39;: form.$submitted}" novalidate="">
-        <div class="validation-errors" ng-show="form.$submitted &amp;&amp; form.$invalid">
-          <div class="validation-message" ng-show="form.confirmationCode.$error">
-            Bitte gebe deinen Verifizierungscode ein
+    <div class="row">
+      <div class="col col-25"></div>
+      <div class="col col-50">
+        <div class="list list-transparent">
+          <form autocomplete="off" name="form" ng-class="{&#39;validation&#39;: form.$submitted}" novalidate="">
+            <div class="validation-errors" ng-show="form.$submitted &amp;&amp; form.$invalid">
+              <div class="validation-message" ng-show="form.confirmationCode.$error">
+                Bitte gebe deinen Verifizierungscode ein
+              </div>
+              <div class="validation-message" ng-show="form.confirmationCode.$error.pattern">
+                Dein Verifizierungscode hat das falsche Format
+              </div>
+            </div>
+            <label class="item item-input block padding-right" ng-class="{valid: form.confirmationCode.$valid, error: form.confirmationCode.$invalid}"><span class="input-label input-label-capital padding">Code Eingeben</span>
+              <div class="input-wrapper input-calm padding-horizontal padding-bottom">
+                <input class="input code-input" id="checkCode-codeInput" maxlength="6" name="confirmationCode" ng-keydown="keyDown($event)" ng-model="confirmationCode" ng-pattern="codeRegexp" required="" type="tel" /><span ng-init="setForm(form)"></span>
+              </div>
+            </label>
+            <p class="padding padding-large-top text-center">
+              Wir haben dir einen Verifizierungscode an {{userNumber}} gesendet.
+            </p>
+          </form>
+          <div class="text-center">
+            <button class="button button-clear button-calm" ng-click="requestCodeAgain()">Code erneut beantragen</button>
+            <div class="text-center padding-very-large-top">
+              <img class="img-logo padding-right padding-bottom" src="img/norton-secured.png" /><img class="img-logo padding-bottom" src="img/tuv.png" />
+            </div>
           </div>
-          <div class="validation-message" ng-show="form.confirmationCode.$error.pattern">
-            Dein Verifizierungscode hat das falsche Format
-          </div>
-        </div>
-        <label class="item item-input block padding-right" ng-class="{valid: form.confirmationCode.$valid, error: form.confirmationCode.$invalid}"><span class="input-label input-label-capital padding">Code Eingeben</span>
-          <div class="input-wrapper input-calm padding-horizontal padding-bottom">
-            <input class="input code-input" id="checkCode-codeInput" maxlength="6" name="confirmationCode" ng-keydown="keyDown($event)" ng-model="confirmationCode" ng-pattern="codeRegexp" required="" type="tel" /><span ng-init="setForm(form)"></span>
-          </div>
-        </label>
-        <p class="padding padding-large-top text-center">
-          Wir haben dir einen Verifizierungscode an {{userNumber}} gesendet.
-        </p>
-      </form>
-      <div class="text-center">
-        <button class="button button-clear button-calm" ng-click="requestCodeAgain()">Code erneut beantragen</button>
-        <div class="text-center padding-very-large-top">
-          <img class="img-logo padding-right padding-bottom" src="img/norton-secured.png" /><img class="img-logo padding-bottom" src="img/tuv.png" />
         </div>
       </div>
     </div>

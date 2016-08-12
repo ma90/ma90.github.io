@@ -1,57 +1,61 @@
 <ion-view><ion-nav-title>{{chatTitle}}</ion-nav-title><ion-nav-buttons side="secondary"><button class="button" ng-click="goToDocBox()" ng-if="consultation.active"><img class="chat-icon-callback" src="img/icon-docs.svg" /></button><button class="button" ng-click="callMeMaybe()" ng-if="consultation.active"><img class="chat-icon-callback" src="img/icon-callback.svg" /></button></ion-nav-buttons><ion-content class="chat" delegate-handle="chatScroller" ng-click="noFocusOnBlur()" on-double-tap="scrollToBottom({animated: true})">
-    <div ng-class="{&#39;chat-cache-placeholder&#39;: !cacheLoaded, &#39;chat-cache-placeholder-done&#39;: cacheLoaded || fromMemory}">
-      <div class="timeline-item">
-        <div class="timeline-background">
-          <div class="background-masker mask-right"></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-background">
-          <div class="background-masker mask-right"></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-background">
-          <div class="background-masker mask-right"></div>
-        </div>
-      </div>
-      <div class="timeline-item timeline-item-right">
-        <div class="timeline-background">
-          <div class="background-masker mask-left"></div>
-        </div>
-      </div>
-      <div class="timeline-item timeline-item-right">
-        <div class="timeline-background">
-          <div class="background-masker mask-left"></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-background">
-          <div class="background-masker mask-right"></div>
-        </div>
-      </div>
-      <div class="timeline-item timeline-item-right">
-        <div class="timeline-background">
-          <div class="background-masker mask-left"></div>
-        </div>
-      </div>
-    </div>
-    <div ng-class="{&#39;chat-cache-loaded&#39;: cacheLoaded, &#39;chat-cache-loading&#39;: !cacheLoaded}">
-      <span class="chat-timestamp">{{ ::consultation.started_at }}</span>
-      <div class="text-center" ng-click="loadEarlierMessages()" ng-if="can_load_earlier_messages">
-        <a class="underline">ältere Nachrichten laden</a>
-      </div>
-      <div class="message-wrapper" ng-class="{&#39;chat-message-last&#39;: message.last_message}" ng-repeat="message in messages track by message.id" ng-switch="::message.__parts[0].mimeType">
-        <div class="chat-message chat-message-body" ng-bind="::message.__parts[0].body" ng-class="{&#39;chat-message-user&#39;: message.app_user_message}" ng-switch-when="text/plain"></div>
-        <div>
-          <agent-profile message-id="{{::message.id}}" ng-switch-when="application/getsafe.agent-data"></agent-profile>
-        </div>
-        <form-message conversation="{{::params.conversation_id}}" message-id="{{::message.id}}" ng-switch-when="application/getsafe.dynamic-form-button"></form-message><selected-product-message message-id="{{::message.id}}" ng-switch-when="application/getsafe.optimized-selected-products"></selected-product-message><selected-product-message message-id="{{::message.id}}" ng-switch-when="application/getsafe.bought-recommended-products"></selected-product-message><link-message message-id="{{::message.id}}" ng-switch-when="application/getsafe.link-message"></link-message><consultation-document-message conversation="{{::params.conversation_id}}" message-id="{{::message.id}}" ng-switch-when="application/getsafe.new-consultation-document"></consultation-document-message><inline-review ng-switch-when="application/getsafe.consultation-rating"></inline-review><span class="chat-message-timestamp" ng-class="{&#39;chat-message-user&#39;: message.app_user_message}">
-          <div ng-if="message.app_user_message">
-            {{ message.sent_at_display + ', ' + message.read_status}}
+    <div class="row">
+      <div class="col col-50">
+        <div ng-class="{&#39;chat-cache-placeholder&#39;: !cacheLoaded, &#39;chat-cache-placeholder-done&#39;: cacheLoaded || fromMemory}">
+          <div class="timeline-item">
+            <div class="timeline-background">
+              <div class="background-masker mask-right"></div>
+            </div>
           </div>
-          <agent-timestamp message-id="{{::message.id}}" ng-if="!message.app_user_message"></agent-timestamp></span>
+          <div class="timeline-item">
+            <div class="timeline-background">
+              <div class="background-masker mask-right"></div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-background">
+              <div class="background-masker mask-right"></div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item-right">
+            <div class="timeline-background">
+              <div class="background-masker mask-left"></div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item-right">
+            <div class="timeline-background">
+              <div class="background-masker mask-left"></div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-background">
+              <div class="background-masker mask-right"></div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item-right">
+            <div class="timeline-background">
+              <div class="background-masker mask-left"></div>
+            </div>
+          </div>
+        </div>
+        <div ng-class="{&#39;chat-cache-loaded&#39;: cacheLoaded, &#39;chat-cache-loading&#39;: !cacheLoaded}">
+          <span class="chat-timestamp">{{ ::consultation.started_at }}</span>
+          <div class="text-center" ng-click="loadEarlierMessages()" ng-if="can_load_earlier_messages">
+            <a class="underline">ältere Nachrichten laden</a>
+          </div>
+          <div class="message-wrapper" ng-class="{&#39;chat-message-last&#39;: message.last_message}" ng-repeat="message in messages track by message.id" ng-switch="::message.__parts[0].mimeType">
+            <div class="chat-message chat-message-body" ng-bind="::message.__parts[0].body" ng-class="{&#39;chat-message-user&#39;: message.app_user_message}" ng-switch-when="text/plain"></div>
+            <div>
+              <agent-profile message-id="{{::message.id}}" ng-switch-when="application/getsafe.agent-data"></agent-profile>
+            </div>
+            <form-message conversation="{{::params.conversation_id}}" message-id="{{::message.id}}" ng-switch-when="application/getsafe.dynamic-form-button"></form-message><selected-product-message message-id="{{::message.id}}" ng-switch-when="application/getsafe.optimized-selected-products"></selected-product-message><selected-product-message message-id="{{::message.id}}" ng-switch-when="application/getsafe.bought-recommended-products"></selected-product-message><link-message message-id="{{::message.id}}" ng-switch-when="application/getsafe.link-message"></link-message><consultation-document-message conversation="{{::params.conversation_id}}" message-id="{{::message.id}}" ng-switch-when="application/getsafe.new-consultation-document"></consultation-document-message><inline-review ng-switch-when="application/getsafe.consultation-rating"></inline-review><span class="chat-message-timestamp" ng-class="{&#39;chat-message-user&#39;: message.app_user_message}">
+              <div ng-if="message.app_user_message">
+                {{ message.sent_at_display + ', ' + message.read_status}}
+              </div>
+              <agent-timestamp message-id="{{::message.id}}" ng-if="!message.app_user_message"></agent-timestamp></span>
+          </div>
+          <span id="end"></span><type-indicator></type-indicator>
+        </div>
       </div>
-      <span id="end"></span><type-indicator></type-indicator>
     </div>
   </ion-content><ion-footer-bar class="bar bar-footer bar-footer-input" keyboard-attach="" ng-show="consultation.active"><textarea class="chat-input js-chat-input" detect-focus="" focus-on-blur="focus_manager.focusInputOnBlur" ng-keyup="sendIfEnter($event)" ng-model="new_message.content" placeholder="Nachricht hier eingeben"></textarea><button class="button button-send-message chat-send-button" ng-disabled="!chat_ready" on-release="sendMessage()" stop-event="touchstart">Senden</button></ion-footer-bar></ion-view>

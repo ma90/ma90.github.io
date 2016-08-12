@@ -1,44 +1,49 @@
 <ion-view cache-view="false" title="Registrieren"><ion-nav-bar align-title="left" class="bar-calm"><ion-nav-back-button default-nav-back-button="" ng-click="goBack()"><i class="icon icomoon icomoon-chevron-left"></i></ion-nav-back-button></ion-nav-bar><ion-content class="light-bg" overflow-scroll="false">
-    <div class="list list-transparent">
-      <form class="validation-large" name="form" ng-class="{&#39;validation&#39;: form.$submitted}" novalidate="">
-        <div class="validation-errors" ng-show="form.$submitted &amp;&amp; form.$invalid">
-          <div class="validation-message" ng-show="form.userName.$error.required">
-            Bitte gebe deinen Namen ein (Max Mustermann)
-          </div>
-          <div class="validation-message" ng-show="form.userName.$error.minlength">
-            Bitte gebe deinen korrekten Namen ein
-          </div>
-          <div class="validation-message" ng-show="form.userNumber.$error.required">
-            {{::numberErrMessage}}
-          </div>
-          <div class="validation-message" ng-show="form.userName.$error.pattern">
-            {{::nameFormatErrMessage}}
-          </div>
-          <div class="validation-message" ng-show="form.userNumber.$error.tel">
-            Bitte versuche es erneut mit einer gültigen Handynummer
+    <div class="row">
+      <div class="col col-25"></div>
+      <div class="col col-50">
+        <div class="list list-transparent">
+          <form class="validation-large" name="form" ng-class="{&#39;validation&#39;: form.$submitted}" novalidate="">
+            <div class="validation-errors" ng-show="form.$submitted &amp;&amp; form.$invalid">
+              <div class="validation-message" ng-show="form.userName.$error.required">
+                Bitte gebe deinen Namen ein (Max Mustermann)
+              </div>
+              <div class="validation-message" ng-show="form.userName.$error.minlength">
+                Bitte gebe deinen korrekten Namen ein
+              </div>
+              <div class="validation-message" ng-show="form.userNumber.$error.required">
+                {{::numberErrMessage}}
+              </div>
+              <div class="validation-message" ng-show="form.userName.$error.pattern">
+                {{::nameFormatErrMessage}}
+              </div>
+              <div class="validation-message" ng-show="form.userNumber.$error.tel">
+                Bitte versuche es erneut mit einer gültigen Handynummer
+              </div>
+            </div>
+            <label class="item item-input padding-right block" ng-class="{valid: form.userName.$valid, error: form.userName.$invalid}"><span class="input-label input-label-capital padding">Name</span>
+              <div class="input-wrapper input-calm padding-horizontal padding-bottom">
+                <input class="input" id="register-nameInput" name="userName" ng-minlength="5" ng-model="userName" ng-pattern="fullNameRegexp" required="" type="text" />
+              </div>
+            </label><label class="item item-input padding-right block" ng-class="{valid: form.userNumber.$valid, error: form.userNumber.$invalid}"><span class="input-label input-label-capital padding">Handynummer</span>
+              <div class="input-wrapper input-calm padding-horizontal padding-bottom">
+                <input class="input" id="register-numberInput" name="userNumber" ng-model="userNumber" overwrite-tel="" required="" type="tel" />
+              </div>
+              <span ng-init="setForm(form)"></span></label>
+          </form>
+        </div>
+        <p class="padding-large-horizontal padding-large-bottom text-center">
+          Zu deiner eigenen Sicherheit prüfen wir, dass wirklich du selbst dich
+          anmeldest und nicht jemand anderes. Dafür senden wir einen Code per SMS.
+        </p>
+        <div class="padding-large-horizontal text-center">
+          <p>
+            Mit dem Absenden der Daten akzeptiere ich die <a class="calm" ng-click="showTermsModal()">AGB</a> und <a class="calm" ng-click="showPrivacyModal()">Datenschutzerklärung.</a>
+          </p>
+          <div class="text-center padding-large-top">
+            <img class="img-logo padding-right padding-bottom" src="img/norton-secured.png" /><img class="img-logo padding-bottom" src="img/tuv.png" />
           </div>
         </div>
-        <label class="item item-input padding-right block" ng-class="{valid: form.userName.$valid, error: form.userName.$invalid}"><span class="input-label input-label-capital padding">Name</span>
-          <div class="input-wrapper input-calm padding-horizontal padding-bottom">
-            <input class="input" id="register-nameInput" name="userName" ng-minlength="5" ng-model="userName" ng-pattern="fullNameRegexp" required="" type="text" />
-          </div>
-        </label><label class="item item-input padding-right block" ng-class="{valid: form.userNumber.$valid, error: form.userNumber.$invalid}"><span class="input-label input-label-capital padding">Handynummer</span>
-          <div class="input-wrapper input-calm padding-horizontal padding-bottom">
-            <input class="input" id="register-numberInput" name="userNumber" ng-model="userNumber" overwrite-tel="" required="" type="tel" />
-          </div>
-          <span ng-init="setForm(form)"></span></label>
-      </form>
-    </div>
-    <p class="padding-large-horizontal padding-large-bottom text-center">
-      Zu deiner eigenen Sicherheit prüfen wir, dass wirklich du selbst dich
-      anmeldest und nicht jemand anderes. Dafür senden wir einen Code per SMS.
-    </p>
-    <div class="padding-large-horizontal text-center">
-      <p>
-        Mit dem Absenden der Daten akzeptiere ich die <a class="calm" ng-click="showTermsModal()">AGB</a> und <a class="calm" ng-click="showPrivacyModal()">Datenschutzerklärung.</a>
-      </p>
-      <div class="text-center padding-large-top">
-        <img class="img-logo padding-right padding-bottom" src="img/norton-secured.png" /><img class="img-logo padding-bottom" src="img/tuv.png" />
       </div>
     </div>
   </ion-content></ion-view><submittable-footer handler="requestCode"></submittable-footer>

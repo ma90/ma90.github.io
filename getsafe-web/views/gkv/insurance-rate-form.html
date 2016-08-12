@@ -1,14 +1,19 @@
-<ion-view cache-view="false" title="{{title}}"><ion-content class="light-bg" overflow-scroll="false">
-    <div class="padding-top padding-horizontal flex flex-content-center height-inherit">
-      <p class="text-center">
-        Bitte nenne uns deinen monatlichen Beitrag zur gesetzlichen Krankenversicherung.
-      </p>
-      <div class="input-wrapper input-calm input-calm-font padding-bottom padding-horizontal">
-        <input class="input-full-length" ng-model="input.amount" placeholder="{{current_monthly}}" type="number" /><span class="input-unit">€</span>
+<ion-view cache-view="false" style="background-color: #fff;" title="{{title}}"><ion-content class="light-bg" overflow-scroll="false">
+    <div class="row">
+      <div class="col col-25"></div>
+      <div class="col col-50">
+        <div class="padding-top padding-horizontal flex flex-content-center height-inherit">
+          <p class="text-center">
+            Bitte nenne uns deinen monatlichen Beitrag zur gesetzlichen Krankenversicherung.
+          </p>
+          <div class="input-wrapper input-calm input-calm-font padding-bottom padding-horizontal">
+            <input class="input-full-length" ng-model="input.amount" placeholder="{{current_monthly}}" type="number" /><span class="input-unit">€</span>
+          </div>
+          <p class="text-center padding-horizontal padding-vertical">
+            Du findest deinen Krankenkassenbeitrag auf deiner letzten Gehaltsabrechnung (z.B. als “Krankenversicherung”, “KV-Beitrag” oder “KV”).
+          </p>
+          <a class="calm underline text-center padding-top" ng-click="goToUserIncomeForm()">Ich weiß meinen Beitrag nicht.</a>
+        </div>
       </div>
-      <p class="text-center padding-horizontal padding-vertical">
-        Du findest deinen Krankenkassenbeitrag auf deiner letzten Gehaltsabrechnung (z.B. als “Krankenversicherung”, “KV-Beitrag” oder “KV”).
-      </p>
-      <a class="calm underline text-center padding-top" ng-click="goToUserIncomeForm()">Ich weiß meinen Beitrag nicht.</a>
     </div>
-  </ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="formValid() ? &#39;bar-calm&#39; : &#39;bar-stable&#39;" ng-click="submit()"><a class="title button-cta">Weiter</a></ion-footer-bar>
+  </ion-content></ion-view><ion-footer-bar align-title="center" keyboard-attach="" ng-class="formValid() ? &#39;bar-calm&#39; : &#39;bar-stable&#39;" ng-click="submit()" style="width: 60%; left: 20%; height: 40px; bottom: 15px"><a class="title button-cta" style="line-height: 35px;">Weiter</a></ion-footer-bar>

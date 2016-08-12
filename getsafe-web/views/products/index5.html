@@ -2,26 +2,31 @@
       <div class="chat-badge badge badge-light" ng-if="has_new_chat_messages">
         {{unread_messages_count}}
       </div>
-    </button></ion-nav-buttons><ion-content padding="true"><ion-refresher on-refresh="refresh()" pulling-text="Aktualisiere..."></ion-refresher><teaser-panel gkv-in-check="{{ hasGkvInCheck() }}" has-partner="{{ partners.length &gt; 0 }}" user-insurance-types="{{ getUserInsuranceTypes() }}"></teaser-panel>
-    <div ng-if="insurances.length &gt; 0">
-      <h4 class="products-heading">
-        Deine Versicherungen
-      </h4>
-      <ng-include src="&#39;views/products/products-current1.html&#39;"></ng-include>
+    </button></ion-nav-buttons><ion-content padding="true"><ion-refresher on-refresh="refresh()" pulling-text="Aktualisiere..."></ion-refresher>
+    <div class="row">
+      <div class="col col-50">
+        <teaser-panel gkv-in-check="{{ hasGkvInCheck() }}" has-partner="{{ partners.length &gt; 0 }}" user-insurance-types="{{ getUserInsuranceTypes() }}"></teaser-panel>
+        <div ng-if="insurances.length &gt; 0">
+          <h4 class="products-heading">
+            Deine Versicherungen
+          </h4>
+          <ng-include src="&#39;views/products/products-current1.html&#39;"></ng-include>
+        </div>
+        <div ng-repeat="partner in partners track by $index">
+          <partner-products-list partner-index="{{$index}}"></partner-products-list>
+        </div>
+        <h4 class="products-heading" ng-hide="noInsurers()">
+          Wird geprüft
+        </h4>
+        <ng-include src="&#39;views/products/products-checked.html&#39;"></ng-include>
+        <p class="padding padding-very-large-bottom text-center dark" ng-hide="noInsurers() || hideSubText">
+          Deine Versicherungsverträge werden eingeholt.
+          Das kann bis zu vier Wochen dauern.
+          Wir informieren dich, sobald du deine Vertragsinformationen in der App findest.
+        </p>
+        <div class="padding-top padding-bottom" ng-if="noInsurers()"></div>
+      </div>
     </div>
-    <div ng-repeat="partner in partners track by $index">
-      <partner-products-list partner-index="{{$index}}"></partner-products-list>
-    </div>
-    <h4 class="products-heading" ng-hide="noInsurers()">
-      Wird geprüft
-    </h4>
-    <ng-include src="&#39;views/products/products-checked.html&#39;"></ng-include>
-    <p class="padding padding-very-large-bottom text-center dark" ng-hide="noInsurers() || hideSubText">
-      Deine Versicherungsverträge werden eingeholt.
-      Das kann bis zu vier Wochen dauern.
-      Wir informieren dich, sobald du deine Vertragsinformationen in der App findest.
-    </p>
-    <div class="padding-top padding-bottom" ng-if="noInsurers()"></div>
   </ion-content></ion-view><add-plus-button tracking="plusButtonTrackers"></add-plus-button>
 <div ng-if="isBackdropVisible">
   <div class="guide-backdrop"></div>
