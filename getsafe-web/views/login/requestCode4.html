@@ -1,34 +1,39 @@
 <ion-view cache-view="false" title="Anmelden"><ion-nav-bar align-title="left" class="bar-calm"><ion-nav-back-button default-nav-back-button="" ng-click="goBack()"><i class="icon icomoon icomoon-chevron-left"></i></ion-nav-back-button></ion-nav-bar><ion-content class="light-bg" overflow-scroll="false">
-    <div class="list list-transparent">
-      <form class="height-inherit validation-large" name="loginForm" ng-class="{&#39;validation&#39;: loginForm.$submitted}" ng-submit="requestCode(loginForm)" novalidate="">
-        <div class="validation-errors" ng-show="loginForm.$submitted &amp;&amp; loginForm.$invalid">
-          <div class="validation-message" ng-show="loginForm.userNumber.$error">
-            {{::numberErrMessage}}
-          </div>
-          <div class="validation-message" ng-show="loginForm.userNumber.$error.tel">
-            Bitte versuche es erneut mit einer gültigen Handynummer.
-          </div>
+    <div class="row">
+      <div class="col col-25"></div>
+      <div class="col col-50">
+        <div class="list list-transparent">
+          <form class="height-inherit validation-large" name="loginForm" ng-class="{&#39;validation&#39;: loginForm.$submitted}" ng-submit="requestCode(loginForm)" novalidate="">
+            <div class="validation-errors" ng-show="loginForm.$submitted &amp;&amp; loginForm.$invalid">
+              <div class="validation-message" ng-show="loginForm.userNumber.$error">
+                {{::numberErrMessage}}
+              </div>
+              <div class="validation-message" ng-show="loginForm.userNumber.$error.tel">
+                Bitte versuche es erneut mit einer gültigen Handynummer.
+              </div>
+            </div>
+            <label class="item item-input padding-right block" ng-class="{valid: loginForm.userNumber.$valid, error: loginForm.userNumber.$invalid}"><span class="input-label input-label-capital padding">Handynummer</span>
+              <div class="input-wrapper input-calm padding-horizontal padding-bottom">
+                <input class="input padding-horizontal" id="login-numberInput" name="userNumber" ng-keydown="keyDown($event)" ng-model="userNumber" overwrite-tel="" required="" type="tel" />
+              </div>
+            </label>
+            <p class="padding-double-large-sides text-center margin-none">
+              Bitte melde dich mit deiner Handynummer an, mit der du dich bei GetSafe registriert hast. Wir senden dir einen Verifizierungcode per SMS.
+            </p>
+            <p class="padding-horizontal padding-top text-center margin-none">
+              Du hast eine neue Handynummer und kannst dich nicht mehr anmelden? Wir helfen dir!
+            </p>
+            <a class="block no-underline calm text-center" ui-sref="start.intro-contact">Zum Kundenservice</a>
+            <div class="padding-large-horizontal padding-large-top text-center">
+              <p>
+                Mit dem Absenden der Daten akzeptiere ich die <a class="calm" ng-click="showTermsModal()">AGB</a> und <a class="calm" ng-click="showPrivacyModal()">Datenschutzerklärung.</a>
+              </p>
+            </div>
+            <div class="text-center padding-large-top">
+              <img class="img-logo padding-right padding-bottom" src="img/norton-secured.png" /><img class="img-logo padding-bottom" src="img/tuv.png" />
+            </div>
+          </form>
         </div>
-        <label class="item item-input padding-right block" ng-class="{valid: loginForm.userNumber.$valid, error: loginForm.userNumber.$invalid}"><span class="input-label input-label-capital padding">Handynummer</span>
-          <div class="input-wrapper input-calm padding-horizontal padding-bottom">
-            <input class="input padding-horizontal" id="login-numberInput" name="userNumber" ng-keydown="keyDown($event)" ng-model="userNumber" overwrite-tel="" required="" type="tel" />
-          </div>
-        </label>
-        <p class="padding-double-large-sides text-center margin-none">
-          Bitte melde dich mit deiner Handynummer an, mit der du dich bei GetSafe registriert hast. Wir senden dir einen Verifizierungcode per SMS.
-        </p>
-        <p class="padding-horizontal padding-top text-center margin-none">
-          Du hast eine neue Handynummer und kannst dich nicht mehr anmelden? Wir helfen dir!
-        </p>
-        <a class="block no-underline calm text-center" ui-sref="start.intro-contact">Zum Kundenservice</a>
-        <div class="padding-large-horizontal padding-large-top text-center">
-          <p>
-            Mit dem Absenden der Daten akzeptiere ich die <a class="calm" ng-click="showTermsModal()">AGB</a> und <a class="calm" ng-click="showPrivacyModal()">Datenschutzerklärung.</a>
-          </p>
-        </div>
-        <div class="text-center padding-large-top">
-          <img class="img-logo padding-right padding-bottom" src="img/norton-secured.png" /><img class="img-logo padding-bottom" src="img/tuv.png" />
-        </div>
-      </form>
+      </div>
     </div>
   </ion-content></ion-view><ion-footer-bar align-title="center" class="bar-calm" keyboard-attach=""><a class="title button-cta" id="login-requestCodeBtn" ng-click="submitLoginForm()">Weiter</a></ion-footer-bar>

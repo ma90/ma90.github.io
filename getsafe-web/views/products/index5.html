@@ -4,7 +4,7 @@
       </div>
     </button></ion-nav-buttons><ion-content padding="true"><ion-refresher on-refresh="refresh()" pulling-text="Aktualisiere..."></ion-refresher>
     <div class="row">
-      <div class="col col-50">
+      <div class="col col-100">
         <teaser-panel gkv-in-check="{{ hasGkvInCheck() }}" has-partner="{{ partners.length &gt; 0 }}" user-insurance-types="{{ getUserInsuranceTypes() }}"></teaser-panel>
         <div ng-if="insurances.length &gt; 0">
           <h4 class="products-heading">

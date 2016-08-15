@@ -1,6 +1,6 @@
 <ion-view><ion-nav-title>{{chatTitle}}</ion-nav-title><ion-nav-buttons side="secondary"><button class="button" ng-click="goToDocBox()" ng-if="consultation.active"><img class="chat-icon-callback" src="img/icon-docs.svg" /></button><button class="button" ng-click="callMeMaybe()" ng-if="consultation.active"><img class="chat-icon-callback" src="img/icon-callback.svg" /></button></ion-nav-buttons><ion-content class="chat" delegate-handle="chatScroller" ng-click="noFocusOnBlur()" on-double-tap="scrollToBottom({animated: true})">
     <div class="row">
-      <div class="col col-50">
+      <div class="col col-100">
         <div ng-class="{&#39;chat-cache-placeholder&#39;: !cacheLoaded, &#39;chat-cache-placeholder-done&#39;: cacheLoaded || fromMemory}">
           <div class="timeline-item">
             <div class="timeline-background">
