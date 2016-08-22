@@ -2,6 +2,7 @@
   window.Settings = {
     app_version: "12.0.0",
     adjustToken: "8vx2lm47qefq",
+    mixpanelToken: "4240cda5a6d5d39259454629539391aa",
     layer_app_id: "layer:///apps/production/464302de-ef8c-11e5-b670-8407e8084abc",
     host: 'https://getsafe.de/',
     userName: '',
