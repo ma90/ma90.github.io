@@ -1,12 +1,22 @@
-<ion-view cache-view="false" class="light-bg" hide-nav-bar="true" title="Unterschreiben"><ion-header-bar class="bar-light-bg calm"><back-to-state-button class="flex padding-large-right" target-state="start.register-stepPoa"></back-to-state-button>
+<ion-view cache-view="false" class="light-bg" hide-nav-bar="true" title="Unterschreiben"><ion-header-bar class="bar-light-bg calm" ng-show="!signOnPhoneBrowser"><back-to-state-button class="flex padding-large-right" target-state="start.register-stepPoa"></back-to-state-button>
     <h1 class="title title-left calm">
       Unterschreiben
     </h1>
   </ion-header-bar><ion-content scroll="false">
+    <div class="signature-desc" ng-if="!signOnPhoneBrowser">
+      Nutze entweder die Maus um deine digitale Unterschrift zu tätigen.
+    </div>
     <div class="signature-pad-header">
       <i class="icon icon-small icomoon icomoon-trash2" ng-click="clearCanvas()" ng-if="signatureValid"></i>
     </div>
     <div class="signature-pad">
+      <div class="signature-sample-pos" ng-class="{&#39;signature-waited&#39;: waited1}" ng-if="!signOnPhoneBrowser">
+        <div class="signature-helper"></div>
+        <svg class="signature-sample" viewBox="0 0 195.362 180"><path class="tl" d="M61.709,39.77c0,0-16.667,165.167,35.833,129.333 c0,0,71.667-50.167,65.833-126.833c-5.373-70.614-42.5-44.167-42.5,23.333c0,22.562-1.667,150.833,74.167,87.5"></path></svg>
+      </div>
       <canvas class="signature-pad-canvas" ng-click="validCanvas()"></canvas>
+      <div class="signature-to-phone text-center" ng-class="{&#39;signature-waited&#39;: waited2}" ng-if="!signOnPhoneBrowser">
+        Oder unterschreibe bequem mit dem Finger.<br /><a class="calm" ng-click="requestOneTimeSignature()"><i class="icon ion-iphone"></i> Link auf dein Handy senden</a>
+      </div>
     </div>
   </ion-content><ion-footer-bar align-title="center" ng-class="signatureValid ? &#39;bar-calm&#39; : &#39;bar-dark&#39;"><a class="title button-cta" id="signature-confirm" ng-click="nextStep()">Weiter</a></ion-footer-bar></ion-view>
